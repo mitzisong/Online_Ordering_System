@@ -1,17 +1,10 @@
-from intro_to_flask import app
+from bakery_ordering_system import app
 from flask import Flask, render_template, request, flash
-from forms import ContactForm
+from forms import ContactForm, SignupForm
 from flask.ext.mail import Message, Mail
-from models import db
-  
-mail = Mail()
+from models import Customer, session as dbsession
 
-@app.route('/testdb')  
-def testdb():
-  if db.session.query("1").from_statement("SELECT 1").all():
-    return 'It works.'
-  else:
-    return 'Something is broken.'
+mail = Mail()
 
 @app.route('/')
 def home():
@@ -20,6 +13,30 @@ def home():
 @app.route('/about')
 def about():
   return render_template('about.html')
+
+@app.route('/menu')
+def menu():
+  return render_template('menu.html')
+
+@app.route('/order', methods=['GET', 'POST'])
+def order():
+  form = SignupForm(request.form)
+
+  if request.method == 'POST':
+    if form.validate() == False:
+      return render_template('order.html', form=form)
+    else:
+      newuser = Customer(firstname = form.firstname.data, 
+                         lastname  = form.lastname.data, 
+                         phonenumber = form.phonenumber.data, 
+                         email = form.email.data)
+      dbsession.add(newuser)
+      dbsession.commit()
+
+      return render_template()
+
+  elif request.method == 'GET':
+    return render_template('order.html', form=form)
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():

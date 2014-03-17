@@ -1,12 +1,14 @@
 {% extends "layout.html" %}
  
 {% block content %}
+<div class="jumbo">
   <h2>Contact</h2>
- 
+
   {% if success %}
     <p>Thank you for your message. We'll get back to you shortly.</p>
  
   {% else %}
+  <h3>Questions? Comments? Let us know - we love feedback!</h3>
     {% for message in form.name.errors %}
       <div class="flash">{{ message }}</div>
     {% endfor %}
@@ -39,6 +41,6 @@
  
       {{ form.submit }}
     </form>
- 
+ </div>
   {% endif %}
 {% endblock %}

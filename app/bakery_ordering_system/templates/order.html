@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+ 
+{% block content %}
+<div class="jumbo">
+  <h2>Order Online</h2>
+  <form class="radio">
+    <input type="radio" name="option" value="pickup">Pick-up
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="option" value="delivery">Delivery
+  </form>
+ 
+  {% for message in form.firstname.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+   
+  {% for message in form.lastname.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+   
+  {% for message in form.phonenumber.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+   
+  {% for message in form.email.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+   
+  <form action="{{ url_for('order') }}" method=post>
+    {{ form.firstname.label }}
+    {{ form.firstname }}
+     
+    {{ form.lastname.label }}
+    {{ form.lastname }}
+     
+    {{ form.phonenumber.label }}
+    {{ form.phonenumber }}
+     
+    {{ form.email.label }}
+    {{ form.email }}
+     
+    {{ form.submit }}
+  </form>
+</div>
+
+{% endblock %}
+
+{% block script %}
+
+    <script language="javascript" type="text/javascript">
+
+    function handleRadioButtonClick() {
+        console.log('handling the radio button');
+    }
+
+    $(document).ready(function (){
+        console.log('document is ready');
+        
+        // Add Click Handler for our Pickup/Delivery Radio Buttons
+        $('[name="option"').click(function(e) {
+            console.log('you clicked on the radio button: ' + this.value);
+            handleRadioButtonClick();
+        });
+
+    });
+ 
+    </script>
+
+{% endblock %}

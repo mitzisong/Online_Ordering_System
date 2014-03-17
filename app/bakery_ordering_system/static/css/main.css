@@ -3,6 +3,7 @@ body {
   padding: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #444;
+  background-color: #FFFFFF
 }
  
 /*
@@ -10,26 +11,26 @@ body {
  */
   
 header {
-  background-color: #2B2B2B;
+  background-color: #FFFFFF;
   height: 35px;
   width: 100%;
   opacity: .9;
-  margin-bottom: 10px;
+  margin-bottom: -20px;
 }
  
-header h1.logo {
+/*header h1.logo {
   margin: 0;
   font-size: 1.7em;
-  color: #fff;
+  color: #990033;
   text-transform: uppercase;
   float: left;
-}
+}*/
  
-header h1.logo:hover {
+/*header h1.logo:hover {
   color: #fff;
   text-decoration: none;
 }
- 
+ */
 /*
  * Center the body content
  */
@@ -40,27 +41,52 @@ header h1.logo:hover {
 }
  
 div.jumbo {
-  padding: 10px 0 30px 0;
-  background-color: #eeeeee;
+  background-color: #FFCCCC;
+  width: 900px;
+  height: 550px;
+/*  padding: 10px 0 400px 0;*/
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
           border-radius: 6px;
 }
+
  
 h2 {
   font-size: 3em;
-  margin-top: 40px;
   text-align: center;
   letter-spacing: -2px;
+  color: #990033;
+  font-family: ;
+  font-weight: 100;
+  width: 900px;
+  height: 30px;
 }
  
 h3 {
-  font-size: 1.7em;
+/*  padding-top: 10;*/
+  font-size: 1.2em;
   font-weight: 100;
-  margin-top: 30px;
-  text-align: center;
+  text-align: left;
+  margin-left: 40px;
+  margin-top: 5px;
   letter-spacing: -1px;
   color: #999;
+  height: 10px;
+}
+
+p {
+  font-size: 1em;
+/*  float: left;*/
+  margin-left: 60px;
+  font-weight: 100;
+  color: #990033;
+  height: 5px;
+  /*margin-top: 10px*/
+}
+
+p.flavors:hover {
+  cursor: pointer;
+  color: #fff;
 }
 
 /*
@@ -69,7 +95,11 @@ h3 {
  
 .menu {
   float: right;
-  margin-top: 8px;
+  /*margin-top: 35px;*/
+  margin-right: 40px;
+  margin-top: 20px;
+  height: 5px;
+  width: 500px;
 }
  
 .menu li {
@@ -83,20 +113,25 @@ h3 {
 .menu li a {
   color: #999;
   text-decoration: none;
+  font-weight: 100;
+  letter-spacing: 2px;
 }
 
 /* Contact form */
 form label {
   font-size: 1.2em;
-  font-weight: bold;
   display: block;
-  padding: 10px 0;
+  padding: 2px 0;
+  font-weight: 100;
+  color: #990033;
+  margin-left: 40px;
+  margin-bottom: -1px;
 }
  
 form input#name,
 form input#email,
 form input#subject {
-  width: 400px;
+  width: 300px;
   background-color: #fafafa;
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
@@ -104,10 +139,12 @@ form input#subject {
   border: 1px solid #cccccc;
   padding: 5px;
   font-size: 1.1em;
+  font-weight: 100;
+  margin-left: 40px;
 }
  
 form textarea#message {
-  width: 500px;
+  width: 400px;
   height: 100px;
   background-color: #fafafa;
   -webkit-border-radius: 3px;
@@ -117,6 +154,7 @@ form textarea#message {
   margin-bottom: 10px;
   padding: 5px;
   font-size: 1.1em;
+  margin-left: 40px
 }
  
 form input#submit {
@@ -136,6 +174,8 @@ form input#submit {
   background-image: -ms-linear-gradient(top, #f4f4f4, #e5e5e5);
   background-image: -o-linear-gradient(top, #f4f4f4, #e5e5e5);
   background-image: linear-gradient(top, #f4f4f4, #e5e5e5);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f4f4f4, endColorstr=#e5e5e5);
+  margin-left: 40px;
+  margin-top: 10px;
 }
  
 form input#submit:hover{
@@ -157,3 +197,28 @@ form input#submit:hover{
   width: 400px;
 }
 
+/* Signup form */
+form input#firstname,
+form input#lastname,
+form input#phonenumber,
+form input#email {
+  width: 300px;
+  background-color: #fafafa;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  border: 1px solid #cccccc;
+  padding: 5px;
+  font-size: 1.1em;
+  margin-left: 40px
+}
+
+form.radio {
+  margin-left: 40px;
+  font-weight: 100;
+  height: 60px;
+}
+
+/*form input#password {
+  margin-bottom: 10px;
+}*/
