@@ -2,13 +2,13 @@
 <html>
   <head>
     <title>Mitzi's Cupcakes</title>    
-    <strong><link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"></strong>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<!--     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+ -->    <link rel="stylesheet" href="{{ url_for('static', filename='css/mitzi.css') }}">
   </head>
   <body>
-    <header>
+<!--     <header>
       <div class="container">
-        <!--<h1 class="logo">Mitzi's Cupcakes</h1>-->
+        <h1 class="logo">Mitzi's Cupcakes</h1>
         <strong><nav>
           <ul class="menu">
             <li><a href="{{ url_for('home') }}">Home</a></li>
@@ -19,14 +19,25 @@
           </ul>
         </nav></strong>
       </div>
-    </header>
-     
+    </header> -->
+
     <div class="container">
-      {% block content %}
-      {% endblock %}
+      <ul class="menu">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('menu') }}">Menu</a></li>
+        <li><a href="{{ url_for('order') }}">Order Online</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      </ul>
+
+      <div class="content">
+        {% block content %}
+        {% endblock %}
+      </div>
     </div>
 
-      {% block script %}
-      {% endblock %}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    {% block script %}
+    {% endblock %}
   </body>
 </html>

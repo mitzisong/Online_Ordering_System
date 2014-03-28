@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+  
+{% block content %}
+<div class="jumbo">
+    <div id="formcontainer">
+          <h2>Order Online</h2>
+          <h3>All flavors are sold by the half dozen. If you'd like an assortment of flavors, try the <strong>Mitzi's Sampler!</strong><br>The minimum order is one(1) dozen minis or half(1/2) dozen regulars.</h3>
+          <form action="/order" method="post">
+              <div class="column">
+                <h4 class="cupcake_type">Dozen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Minis</h4>
+                <input type="quantity" name="quantity" id="dozen" class="txt" value="0" />Mitzi's Sampler<br>
+                <input type="quantity" name="quantity" id="dozen" class="txt" value="0" />Butter Cup<br>
+                <input type="quantity" name="quantity" id="dozen" class="txt" value="0" />Confetti<br>
+                <input type="quantity" name="quantity" id="dozen" class="txt" value="0" />Choco Choco<br>
+                <input type="quantity" name="quantity" id="dozen" class="txt" value="0" />Chocolate & Cream<br>
+                <input type="quantity" name="quantity" id="dozen" class="txt" value="0" />Coconut<br>
+                <input type="quantity" name="quantity" id="dozen" class="txt" value="0" />Chocolate Coconut Cream<br>
+                <input type="quantity" name="quantity" id="dozen" class="txt" value="0" />Grandma's Tea Cake<br>
+                <input type="quantity" name="quantity" id="dozen" class="txt" value="0" />Red Velvet<br>
+                <input type="quantity" name="quantity" id="dozen" class="txt" value="0" />Lemon Drop<br>
+                <input type="quantity" name="quantity" id="dozen" class="txt" value="0" />Dulce de Leche<br>
+                <input type="quantity" name="quantity" id="dozen" class="txt" value="0" />Snickerdoodle<br>
+                <input type="quantity" name="quantity" id="dozen" class="txt" value="0" />Carrot<br>
+              </div>
+              <div class="column">
+                <h4 class="cupcake_type">Dozen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Regulars</h4>
+                <input type="quantity" name="quantity" id="dozen" class="txt" value="0" />Mitzi's Sampler<br>
+                <input type="quantity" name="quantity" id="dozen" class="txt" value="0" />Butter Cup<br>
+                <input type="quantity" name="quantity" id="dozen" class="txt" value="0" />Confetti<br>
+                <input type="quantity" name="quantity" id="dozen" class="txt" value="0" />Choco Choco<br>
+                <input type="quantity" name="quantity" id="dozen" class="txt" value="0" />Chocolate & Cream<br>
+                <input type="quantity" name="quantity" id="dozen" class="txt" value="0" />Coconut<br>
+                <input type="quantity" name="quantity" id="dozen" class="txt" value="0" />Chocolate Coconut Cream<br>
+                <input type="quantity" name="quantity" id="dozen" class="txt" value="0" />Grandma's Tea Cake<br>
+                <input type="quantity" name="quantity" id="dozen" class="txt" value="0" />Red Velvet<br>
+                <input type="quantity" name="quantity" id="dozen" class="txt" value="0" />Lemon Drop<br>
+                <input type="quantity" name="quantity" id="dozen" class="txt" value="0" />Dulce de Leche<br>
+                <input type="quantity" name="quantity" id="dozen" class="txt" value="0" />Snickerdoodle<br>
+                <input type="quantity" name="quantity" id="dozen" class="txt" value="0" />Carrot<br>
+                {{ choosecupcakesform.submit }}
+              </div>
+            </form>  
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script language="javascript" type="text/javascript">
+var input = document.getElementById('quantity');
+    
+document.getElementById('add').onclick = function(){
+    input.value = parseInt(input.value, 10) +1
+}
+
+document.getElementById('subtract').onclick = function(){
+    input.value = parseInt(input.value, 10) -1
+}
+{% endblock %}

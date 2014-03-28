@@ -1,67 +1,294 @@
 {% extends "layout.html" %}
  
 {% block content %}
+
 <div class="jumbo">
-  <h2>Order Online</h2>
-  <form class="radio">
-    <input type="radio" name="option" value="pickup">Pick-up
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="option" value="delivery">Delivery
-  </form>
- 
-  {% for message in form.firstname.errors %}
-    <div class="flash">{{ message }}</div>
-  {% endfor %}
-   
-  {% for message in form.lastname.errors %}
-    <div class="flash">{{ message }}</div>
-  {% endfor %}
-   
-  {% for message in form.phonenumber.errors %}
-    <div class="flash">{{ message }}</div>
-  {% endfor %}
-   
-  {% for message in form.email.errors %}
-    <div class="flash">{{ message }}</div>
-  {% endfor %}
-   
-  <form action="{{ url_for('order') }}" method=post>
-    {{ form.firstname.label }}
-    {{ form.firstname }}
-     
-    {{ form.lastname.label }}
-    {{ form.lastname }}
-     
-    {{ form.phonenumber.label }}
-    {{ form.phonenumber }}
-     
-    {{ form.email.label }}
-    {{ form.email }}
-     
-    {{ form.submit }}
-  </form>
+    <h2>Order Online</h2>
+    <div id="formcontainer">
+        <form action="/order" method="post">
+            <div class="column">
+                <p class ="method">How would you like to get your cupcakes?</p>
+                <div id="choiceone">
+                    <span class="pickup"><input type="radio" name="deliverymethod" value="pickup" checked/>Pick-up</span>
+                    <span class="delivery"><input type="radio" name="deliverymethod" value="delivery" />Delivery</span>
+                </div>
+
+                {% for message in form.firstname.errors %}
+                <div class="flash">{{ message }}</div>
+                {% endfor %}
+               
+                {% for message in form.lastname.errors %}
+                <div class="flash">{{ message }}</div>
+                {% endfor %}
+               
+                {% for message in form.phonenumber.errors %}
+                <div class="flash">{{ message }}</div>
+                {% endfor %}
+               
+                {% for message in form.email.errors %}
+                <div class="flash">{{ message }}</div>
+                {% endfor %}
+
+                {{ form.firstname.label }}
+                {{ form.firstname }}
+                 
+                {{ form.lastname.label }}
+                {{ form.lastname }}
+                 
+                {{ form.phonenumber.label }}
+                {{ form.phonenumber }}
+                 
+                {{ form.email.label }}
+                {{ form.email }}
+
+                {{ form.submit }}
+                
+            </div>
+            <div class="column right-align">
+                <p class="date">What day would you like your cupcakes?</p>
+                <div class="dropdown">
+                    <select id="daydropdown">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                    </select> 
+                    <select id="monthdropdown">
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select> 
+                    <select id="yeardropdown">
+                        <option value="1">2014</option>
+                        <option value="2">2015</option>
+                        <option value="1">2016</option>
+                        <option value="2">2017</option>
+                        <option value="1">2018</option>
+                        <option value="2">2019</option>
+                        <option value="1">2020</option>
+                        <option value="2">2021</option>
+                        <option value="1">2022</option>
+                        <option value="2">2023</option>
+                        <option value="1">2024</option>
+                        <option value="2">2025</option>
+                    </select>
+                </div>
+                <p class="time">What time would you like your cupcakes?<br>
+                    <select class="hours">
+                        <option value="1000">10:00 am</option>
+                        <option value="1030">10:30 am</option>
+                        <option value="1100">11:00 am</option>
+                        <option value="1130">11:30 am</option>
+                        <option value="1200">12:00 pm</option>                      
+                        <option value="1230">12:30 am</option>
+                        <option value="1300">1:00 pm</option>
+                        <option value="1330">1:30 am</option>
+                        <option value="1400">2:00 pm</option>
+                        <option value="1430">2:30 am</option>
+                        <option value="1500">3:00 pm</option>
+                        <option value="1530">3:30 am</option>
+                        <option value="1600">4:00 pm</option>
+                        <option value="1630">4:30 am</option>
+                        <option value="1700">5:00 pm</option>
+                        <option value="1730">5:30 am</option>
+                    </select>
+                <p class="deliverytime">What time would you like your cupcakes by?<br>
+                    <select class="hours">
+                        <option value="1000">by 10:00 am</option>
+                        <option value="1030">by 10:30 am</option>
+                        <option value="1100">by 11:00 am</option>
+                        <option value="1130">by 11:30 am</option>
+                        <option value="1200">by 12:00 pm</option>                     
+                        <option value="1230">by 12:30 am</option>
+                        <option value="1300">by 1:00 pm</option>
+                        <option value="1330">by 1:30 am</option>
+                        <option value="1400">by 2:00 pm</option>                    
+                        <option value="1430">by 2:30 am</option>
+                        <option value="1500">by 3:00 pm</option>
+                        <option value="1530">by 3:30 am</option>
+                        <option value="1600">by 4:00 pm</option>
+                        <option value="1630">by 4:30 am</option>
+                        <option value="1700">by 5:00 pm</option>
+                        <option value="1730">by 5:30 am</option>
+                    </select>
+                    <p class="recipient">Is recipient's name & phone different?</p>
+                    <div id="recipientdifferent">
+                        <span class="yes"><input type="radio" name="recipientdiff" value="yes" checked/>Yes</span>
+                        <span class="no"><input type="radio" name="recipientdiff" value="no" />No</span>
+                    </div>
+                    {% for message in deliveryrecipientform.name.errors %}
+                    <div class="flash">{{ message }}</div>
+                    {% endfor %}
+                   
+                    {% for message in deliveryrecipientform.phonenumber.errors %}
+                    <div class="flash">{{ message }}</div>
+                    {% endfor %}
+                    <div class="deliveryrecipient">
+                        {{ deliveryrecipientform.name.label }}
+                        {{ deliveryrecipientform.name }}
+                         
+                        {{ deliveryrecipientform.phonenumber.label }}
+                        {{ deliveryrecipientform.phonenumber }}
+                    </div>
+                <p class="deliveryaddress">Where should we deliver your cupcakes?</p>
+
+                {% for message in deliveryrecipientform.companyname.errors %}
+                <div class="flash">{{ message }}</div>
+                {% endfor %}
+               
+                {% for message in deliveryrecipientform.streetaddress.errors %}
+                <div class="flash">{{ message }}</div>
+                {% endfor %}
+               
+                {% for message in deliveryrecipientform.unit.errors %}
+                <div class="flash">{{ message }}</div>
+                {% endfor %}
+
+                {% for message in deliveryrecipientform.city.errors %}
+                <div class="flash">{{ message }}</div>
+                {% endfor %}
+               
+                {% for message in deliveryrecipientform.state.errors %}
+                <div class="flash">{{ message }}</div>
+                {% endfor %}
+                {% for message in deliveryrecipientform.zipcode.errors %}
+                <div class="flash">{{ message }}</div>
+                {% endfor %}
+                    <div class = "deliveryaddress">
+                        {{ deliveryrecipientform.companyname.label }}
+                        {{ deliveryrecipientform.companyname }}
+
+                        {{ deliveryrecipientform.streetaddress.label }}
+                        {{ deliveryrecipientform.streetaddress }}
+
+                        {{ deliveryrecipientform.unit.label }}
+                        {{ deliveryrecipientform.unit }}
+
+                        {{ deliveryrecipientform.city.label }}
+                        {{ deliveryrecipientform.city }}
+                        <div class="formrow">
+                            <div class="state">
+                                {{ deliveryrecipientform.state.label }}
+                                {{ deliveryrecipientform.state }}
+                            </div>
+                            <div class="zipcode">
+                                {{ deliveryrecipientform.zipcode.label }}
+                                {{ deliveryrecipientform.zipcode }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 
 {% endblock %}
 
 {% block script %}
 
-    <script language="javascript" type="text/javascript">
+<script language="javascript" type="text/javascript">
 
-    function handleRadioButtonClick() {
-        console.log('handling the radio button');
-    }
-
-    $(document).ready(function (){
-        console.log('document is ready');
         
-        // Add Click Handler for our Pickup/Delivery Radio Buttons
-        $('[name="option"').click(function(e) {
-            console.log('you clicked on the radio button: ' + this.value);
-            handleRadioButtonClick();
-        });
+// function handleRadioButtonClick() {
+//     console.log('handling the radio button');
+// }
 
-    });
- 
-    </script>
+$(document).ready(function (){
+    // Add Click Handler for our Pickup/Delivery Radio Buttons
+    // $('[name="option"]').click(function() {
+    if ($('#choiceone :checked').val()=="pickup") {
+        $("p.deliveryaddress").hide()
+        $("p.deliverytime").hide();
+        $("div.deliveryrecipient").hide()
+        $("div.deliveryaddress").hide()
+        $("p.recipient").hide()
+        $("#recipientdifferent").hide()
+        $("p.time").show()
+    }
+    // If "pickup" is clicked, do this. Else if "delivery" is picked, do that.
+    $('#choiceone input').click(function(){
+        if ($('#choiceone :checked').val()=="pickup") {
+            $("p.deliveryaddress").hide()
+            $("p.deliverytime").hide()
+            $("div.deliveryrecipient").hide()
+            $("div.deliveryaddress").hide()
+            $("p.recipient").hide()
+            $("#recipientdifferent").hide()
+            $("p.time").show()
+        } 
+        else {
+            $("p.deliveryaddress").show()
+            $("p.deliverytime").show()
+            $("div.deliveryrecipient").show()
+            $("div.deliveryaddress").show()
+            $("p.recipient").show()
+            $("#recipientdifferent").show()
+            $("p.time").hide()
+        }
+    })
+});
+
+$(document).ready(function (){
+    // Add Click Handler for our Pickup/Delivery Radio Buttons
+    // $('[name="option"]').click(function() {
+    if ($('#recipientdifferent :checked').val()=="yes" && $('#choiceone :checked').val()=="delivery") {
+        $("div.deliveryrecipient").show()
+        console.log('here');
+    }
+    // If "pickup" is clicked, do this. Else if "delivery" is picked, do that.
+    $('#recipientdifferent input').click(function(){
+        if ($('#recipientdifferent :checked').val()=="yes") {
+            $("div.deliveryrecipient").show()
+        } 
+        else {
+            $("div.deliveryrecipient").hide()
+        }
+    })
+});
+
+</script>
 
 {% endblock %}
+
+
+
+
+
+

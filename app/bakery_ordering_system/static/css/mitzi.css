@@ -1,0 +1,317 @@
+/******************************************************************************
+* Layout
+*/
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #444;
+    background-color: #FFFFFF
+}
+
+.container {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.content {
+    background-color: #FFCCCC;
+    width: 900px;
+    box-sizing: border-box;
+    padding: 0 40px;
+    height: 750px;
+/*  padding: 10px 0 400px 0;*/
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+
+/******************************************************************************
+* Navigation Menu
+*/
+
+.menu {
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+    height: 5px;
+    width: 100%;
+    text-align: right;
+}
+
+.menu li {
+    display: inline;
+}
+ 
+.menu li + li {
+    margin-left: 35px;
+}
+ 
+.menu li a {
+    color: #999;
+    text-decoration: none;
+    font-weight: 100;
+    letter-spacing: 2px;
+}
+
+/******************************************************************************
+* Headers/Typography
+*/
+
+h2 {
+    font-size: 3em;
+    text-align: center;
+    letter-spacing: -2px;
+    color: #990033;
+    font-weight: 100;
+    width: 900px;
+    height: 30px;
+}
+
+h3 {
+    /*  padding-top: 10;*/
+    font-size: 1.2em;
+    font-weight: 100;
+    text-align: left;
+    margin-top: 5px;
+    letter-spacing: -1px;
+    color: #999;
+    height: 10px;
+}
+
+p {
+    font-size: 1em;
+    /*  float: left;*/
+    font-weight: 100;
+    color: #990033;
+    height: 5px;
+    /*margin-top: 10px*/
+}
+
+p.flavors:hover {
+  cursor: pointer;
+  color: #fff;
+}
+
+/******************************************************************************
+* Forms
+*/
+
+form label {
+    font-size: .9em;
+    display: block;
+    padding: 2px 0;
+    font-weight: 100;
+    color: #990033;
+    margin-bottom: -1px;
+}
+
+input[type=text] {
+    width: 300px;
+    background-color: #fafafa;
+    -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+    border: 1px solid #cccccc;
+    padding: 5px;
+    font-size: 1.1em;
+    font-weight: 100;
+}
+
+
+form textarea#message {
+    width: 400px;
+    height: 100px;
+    background-color: #fafafa;
+    -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+    border: 1px solid #cccccc;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-size: 1.1em;
+}
+
+form input#submit {
+    display: block;
+    /*float: right;*/
+    -webkit-border-radius: 3px; 
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+    border:1px solid #d8d8d8;
+    padding: 10px; 
+    font-weight:bold; 
+    text-align: center; 
+    color: #000000; 
+    background-color: #f4f4f4;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f4f4f4), color-stop(100%, #e5e5e5));
+    background-image: -webkit-linear-gradient(top, #f4f4f4, #e5e5e5);
+    background-image: -moz-linear-gradient(top, #f4f4f4, #e5e5e5);
+    background-image: -ms-linear-gradient(top, #f4f4f4, #e5e5e5);
+    background-image: -o-linear-gradient(top, #f4f4f4, #e5e5e5);
+    background-image: linear-gradient(top, #f4f4f4, #e5e5e5);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f4f4f4, endColorstr=#e5e5e5);
+    /*margin-top: 70px;*/
+}
+ 
+form input#submit:hover{
+    cursor: pointer;
+    border:1px solid #c1c1c1; 
+    background-color: #dbdbdb;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dbdbdb), color-stop(100%, #cccccc));
+    background-image: -webkit-linear-gradient(top, #dbdbdb, #cccccc);
+    background-image: -moz-linear-gradient(top, #dbdbdb, #cccccc);
+    background-image: -ms-linear-gradient(top, #dbdbdb, #cccccc);
+    background-image: -o-linear-gradient(top, #dbdbdb, #cccccc);
+    background-image: linear-gradient(top, #dbdbdb, #cccccc);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#dbdbdb, endColorstr=#cccccc);
+}
+
+.flash {
+    background-color: #FBB0B0;
+    padding: 10px;
+    width: 400px;
+}
+
+/******************************************************************************
+* Orders
+*/
+
+/* Signup form */
+form input#firstname,
+form input#lastname,
+form input#phonenumber,
+form input#email {
+  width: 300px;
+  background-color: #fafafa;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  border: 1px solid #cccccc;
+  padding: 5px;
+  font-size: 1.1em;
+}
+
+form.radio {
+  font-weight: 100;
+  height: 60px;
+}
+
+/* Order Form */
+div.date {
+  float: right;
+}
+
+#formcontainer .column
+{
+    width: 50%;
+    float: left;
+}
+#choiceone
+{
+    font-weight: 100;
+    height: 60px;
+}
+#choiceone .delivery
+{
+    margin-left: 155px;
+}
+.right-align
+{
+    text-align: right;
+}
+div.label
+{
+    font-weight: 100;
+    color: #990033;
+}
+select.hours
+{
+    float: right;
+}
+p.deliveryaddress
+{
+    margin-top: 35px;
+    margin-bottom: 40px;
+}
+p.recipient
+{
+    margin-top: 60px;
+}
+#recipientdifferent
+{
+    font-weight: 100;
+    color: #990033;
+}
+div.deliveryrecipient
+{
+    font-size: .8em;
+}
+form label {
+  font-size: .8em;
+  display: block;
+  /*padding: 2px 0;*/
+  font-weight: 100;
+  color: #990033;
+  /*margin-bottom: 5px;*/
+}
+div.deliveryaddress
+{
+    text-align: 
+}
+.deliveryaddress input {
+  width: 300px;
+  background-color: #fafafa;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  border: 1px solid #cccccc;
+  padding: 2px;
+  font-size: 1.1em;
+  font-weight: 100;
+  /*text-align: left*/
+}
+#unit,
+#state,
+#zipcode {
+  width: 75px;
+  background-color: #fafafa;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  border: 1px solid #cccccc;
+  padding: 2px;
+  font-size: 1.1em;
+  font-weight: 100;
+}
+div.formrow {
+    width: 100%;
+}
+div.state {
+    width: 50%;
+    display: inline-block;
+}
+div.zipcode {
+    width: 30%;
+    display: inline-block;
+}
+
+/******************************************************************************
+* Orders2
+*/
+
+input[type="quantity"] {
+    width: 30px;
+    background-color: #fafafa;
+    -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+          border-radius: 3px;
+    border: 1px solid #cccccc;
+    padding: 5px;
+    font-size: .9em;
+}
+
+h4.cupcaketype {
+    font-size: 1em;
+    /*  float: left;*/
+    font-weight: 100;
+}
