@@ -8,7 +8,7 @@
         <form action="/order" method="post">
             <div class="column">
                 <p class ="method"><strong>How would you like to get your cupcakes?</strong><br>We deliver between San Francisco and Sunnyvale.</p>
-                <div class="deliveryorpickup">
+                <div id="deliveryorpickup">
                     {{ deliveryrecipientform.deliverymethod }}
                 </div>
 <!--                 <div id="choiceone">
@@ -141,40 +141,41 @@
 //     console.log('handling the radio button');
 // }
 
-$(document).ready(function (){
-    // Add Click Handler for our Pickup/Delivery Radio Buttons
-    // $('[name="option"]').click(function() {
-    if ($('#choiceone :checked').val()=="pickup") {
-        $("p.deliveryaddress").hide()
-        $("p.deliverytime").hide();
-        $("div.deliveryrecipient").hide()
-        $("div.deliveryaddress").hide()
-        $("p.recipient").hide()
-        $("#recipientdifferent").hide()
-        %("#deliveryorpickup").hide()
-        $("p.time").show()
-    }
-    // If "pickup" is clicked, do this. Else if "delivery" is picked, do that.
-    $('#choiceone input').click(function(){
-        if ($('#choiceone :checked').val()=="pickup") {
-            $("p.deliveryaddress").hide()
-            $("p.deliverytime").hide()
-            $("div.deliveryrecipient").hide()
-            $("div.deliveryaddress").hide()
-            $("p.recipient").hide()
-            $("#recipientdifferent").hide()
-            %("#deliveryorpickup").hide()
-            $("p.time").show()
-        } 
-        else {
+function show_delivery_info() {
             $("p.deliveryaddress").show()
             $("p.deliverytime").show()
             $("div.deliveryrecipient").show()
             $("div.deliveryaddress").show()
             $("p.recipient").show()
             $("#recipientdifferent").show()
-            %("#deliveryorpickup").show()
             $("p.time").hide()
+
+}
+
+function hide_delivery_info() {
+        $("p.deliveryaddress").hide()
+        $("p.deliverytime").hide();
+        $("div.deliveryrecipient").hide()
+        $("div.deliveryaddress").hide()
+        $("p.recipient").hide()
+        $("#recipientdifferent").hide()
+        $("p.time").show()
+
+}
+
+$(document).ready(function (){
+    // Add Click Handler for our Pickup/Delivery Radio Buttons
+    // $('[name="option"]').click(function() {
+    if ($('#deliveryorpickup').val()=="True") {
+        hide_delivery_info();
+    }
+    // If "pickup" is clicked, do this. Else if "delivery" is picked, do that.
+    $('#deliverymethod input').click(function(){
+        if ($('#deliverymethod-0').prop("checked") == true) {
+            hide_delivery_info();
+        } 
+        else {
+            show_delivery_info();
         }
     })
 });
