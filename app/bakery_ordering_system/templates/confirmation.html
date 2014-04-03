@@ -13,7 +13,7 @@
 
             
             <div class = "deliveryconfirmationinfo">
-            {% if delivery == "False" %}
+            {% if delivery == False %}
                 <p><strong>Delivery Information</strong></p>
                 Alternate Name: {{ altname }}<br>
                 Alternate Phone Number: {{ altphonenumber }}<br>
@@ -27,44 +27,28 @@
 </div>
 <div class="column right-align">
     <p><strong>Order Information</strong></p>
-    Date and Time: {{ date_time }}<br>
-    Decoration Theme: {{ decorationtheme }}<br>
-    Color Scheme: {{ colorscheme }}<br><br>
-    {% for cupcake in products %}
-        Flavor: {{ cupcake.product.flavor }}<br>
-        Quantity: {{ cupcake.quantity }}<br>
-        Cost: ${{ cupcake.product.cost }}<br>
-    {% endfor %}
+        Date and Time: {{ date_time }}<br>
+        Decoration Theme: {{ decorationtheme }}<br>
+        Color Scheme: {{ colorscheme }}<br><br>
+        {% for cupcake in products %}
+            Flavor: {{ cupcake.product.flavor }}<br>
+            Dozen: {{ cupcake.quantity }}<br>
+            Cost: ${{ cupcake.product.cost }}<br><br>
+        {% endfor %}
 
-<p><strong>Total Cost</strong></p>
-    {% for cupcake in products %}
-        Cost: ${{ cupcake.product.cost }}<br>
-    {% endfor %}
+        {% if delivery == False %}
+            Delivery: $25
+        {% endif %}
+
+    <p><strong>Total Cost</strong></p>
+        ${{ totalcost }}
 </div>
+
 
 {% endblock %}
 
 {% block script %}
-<script language="javascript" type="text/javascript">
 
-function show_delivery_info() {
-    $("div.deliveryconfirmationinfo").show()
-}
-function hide_delivery_info() {
-    $("div.deliveryconfirmationinfo").hide()
-}
-
-$(document).ready(function (){
-    // If "pickup" is clicked, do this. Else if "delivery" is picked, do that.
-    $('#deliverymethod input').click(function(){
-        if ($('#deliverymethod-0').prop("checked") == true) {
-            hide_delivery_info();
-        } 
-        else {
-            show_delivery_info();
-        }
-    })
-});
 {% endblock %}
 
 

@@ -165,6 +165,14 @@ def confirmation():
 
   d = models.session.query(Order_Product).filter_by(order_id=c.id).all()
 
+  totalcost = 0;
+  if delivery == False:
+    totalcost = 25
+  e = []
+  for product in d:
+    e.append(product)
+    totalcost += product.product.cost
+
 
   # e = models.session.query(Product).order_by(Product.id.desc()).first()
   # cost = e.cost  
@@ -185,7 +193,8 @@ def confirmation():
                                               date_time = datetime.datetime.strftime(c.date_time, "%b-%d-%Y %H:%M"),
                                               decorationtheme = c.decorationtheme,
                                               colorscheme = c.colorscheme,
-                                              products = d,
+                                              products = e,
+                                              totalcost=totalcost,
                                               delivery = c.delivery)
 
 @app.route('/contact', methods=['GET', 'POST'])
