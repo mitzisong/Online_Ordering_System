@@ -7,7 +7,8 @@ body {
     padding: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #444;
-    background-color: #FFFFFF
+    background-color: #FFFFFF;
+    background-image:url("static/img/confetti.jpg");
 }
 
 .container {
@@ -25,6 +26,10 @@ body {
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
+}
+
+div.confettipic {
+  text-align: center;
 }
 
 /******************************************************************************
@@ -213,7 +218,7 @@ div.date {
 }
 #choiceone .delivery
 {
-    margin-left: 155px;
+    margin-left: 110px;
 }
 .right-align
 {
@@ -299,7 +304,32 @@ div.zipcode {
 * Orders2
 */
 
-input[type="quantity"] {
+/*input[type="quantity"] {
+    width: 30px;
+    background-color: #fafafa;
+    -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+          border-radius: 3px;
+    border: 1px solid #cccccc;
+    padding: 5px;
+    font-size: .9em;
+}*/
+
+h4.cupcaketype {
+    font-size: 1em;
+    /*  float: left;*/
+    font-weight: 100;
+}
+
+div.column {
+    margin-top: 30px;
+    font-size: 1em;
+    font-weight: 100;
+    color: #990033;
+    height: 5px;
+}
+
+input name=["minis_{{product.id}}"] {
     width: 30px;
     background-color: #fafafa;
     -webkit-border-radius: 3px;
@@ -310,8 +340,22 @@ input[type="quantity"] {
     font-size: .9em;
 }
 
-h4.cupcaketype {
-    font-size: 1em;
-    /*  float: left;*/
+
+/******************************************************************************
+* Orders3
+*/
+
+span.color {
     font-weight: 100;
+    color: #990033;
+}
+
+div.choosedecorationsubmit {
+    margin-top: 100px;
+    float: right;
+}
+
+p.flavor:hover {
+    cursor: pointer;
+    color: #fff;
 }

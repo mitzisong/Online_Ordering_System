@@ -10,11 +10,13 @@ session = scoped_session(sessionmaker(bind = engine,
                                       autocommit = False,
                                       autoflush = False))
 
+#required for SQLAlchemy's magic to work
 Base = declarative_base()
 Base.query = session.query_property()
 
 #begin class declarations
 class Customer(Base):
+    #instances of this class will be stored in a table named "customers"
     __tablename__ = 'customers'
     id = Column(Integer, primary_key = True)
     firstname = Column(String(100))
@@ -25,18 +27,16 @@ class Customer(Base):
 class Delivery_Recipient(Base):
     __tablename__ = 'recipients'
     id = Column(Integer, primary_key = True)
-    customer_id = Column(Integer, ForeignKey("customers.id")) #ForeignKey references another column in another table
-    order_id = Column(Integer, ForeignKey("orders.id"))
-    name = Column(String(100), nullable = True)
-    phonenumber = Column(String(20), nullable = True)
+    customer_id = Column(Integer, ForeignKey("customers.id")) #ForeignKey references a column in another table
+    altname = Column(String(100), nullable = True) #nullable=True means that this column is optional
+    altphonenumber = Column(String(20), nullable = True)
     companyname = Column(String(20), nullable = True)
     streetaddress = Column(String(100))
     unit = Column(String(20), nullable = True)
     city = Column(String(100))
     state = Column(String(20))
     zipcode = Column(String(20))
-    order = relationship("Order", backref = backref("delivery_recipient"))
-    customer = relationship("Customer", backref = backref("customer"))
+    customer = relationship("Customer", backref = backref("customer")) #establishes a relationship between the Delivery_Recipients and Customer objects
 
 class Product(Base):
     __tablename__ = 'products'
@@ -50,13 +50,14 @@ class Order(Base):
     __tablename__ = 'orders'
     id = Column(Integer, primary_key = True)
     customer_id = Column(Integer, ForeignKey("customers.id"))
-    date = Column(String(20))
-    time = Column(String(20))
+    recipients_id = Column(Integer, ForeignKey("recipients.id"))
+    date_time = Column(DateTime(20))
     delivery = Column(Boolean, default = False)
-    quantity = Column(String(20))
     decorationtheme = Column(String(100))
     colorscheme = Column(String(100))
+    
     customer = relationship("Customer", backref = backref("orders", order_by=id))
+    recipients = relationship("Delivery_Recipient", backref = backref("orders", order_by=id))
 
 class Order_Product(Base):
     __tablename__ = 'orders_products'
@@ -73,3 +74,26 @@ def create_tables(Base):
 
 if __name__ == "__main__":
     create_tables(Base)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
