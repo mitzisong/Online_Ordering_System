@@ -5,7 +5,7 @@
   <h2>Contact</h2>
 
   {% if success %}
-    <p>Thank you for your message. We'll get back to you shortly.</p>
+    <p>Thank you for your message. We'll get back to you shortly!</p>
  
   {% else %}
   <h3>Questions? Comments? Let us know - we love feedback!</h3>
@@ -26,6 +26,7 @@
     {% endfor %}
  
     <form action="{{ url_for('contact') }}" method="post">
+      {{ form.csrf_token }}
  
       {{ form.name.label }}
       {{ form.name }}

@@ -300,6 +300,10 @@ div.zipcode {
     display: inline-block;
 }
 
+input#deliverymethod-0 {
+  list-style-type: none;
+}
+
 /******************************************************************************
 * Orders2
 */
@@ -327,6 +331,10 @@ div.column {
     font-weight: 100;
     color: #990033;
     height: 5px;
+}
+
+div.column right-align {
+  margin-top: 100px;
 }
 
 input name=["minis_{{product.id}}"] {

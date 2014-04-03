@@ -139,17 +139,66 @@ def order3():
 
 @app.route('/confirmation')
 def confirmation():
+  a = models.session.query(Customer).order_by(Customer.id.desc()).first()
+  firstname = a.firstname
+  lastname = a.lastname
+  phonenumber = a.phonenumber
+  email = a.email
 
-  return render_template('confirmation.html')
+  b = models.session.query(Delivery_Recipient).order_by(Delivery_Recipient.id.desc()).first()
+  altname = b.altname
+  altphonenumber = b.altphonenumber
+  companyname = b.companyname
+  streetaddress = b.streetaddress
+  unit = b.unit
+  city = b.city
+  state = b.state
+  zipcode = b.zipcode
+
+  c = models.session.query(Order).order_by(Order.id.desc()).first()
+  date_time = c.date_time
+  decorationtheme = c.decorationtheme
+  colorscheme = c.colorscheme
+  delivery = c.delivery
+
+
+
+  d = models.session.query(Order_Product).filter_by(order_id=c.id).all()
+
+
+  # e = models.session.query(Product).order_by(Product.id.desc()).first()
+  # cost = e.cost  
+
+
+  return render_template('confirmation.html', firstname = a.firstname,
+                                              lastname = a.lastname,
+                                              phonenumber = a.phonenumber,
+                                              email = a.email,
+                                              altname = b.altname,
+                                              altphonenumber = b.altphonenumber,
+                                              companyname = b.companyname,
+                                              streetaddress = b.streetaddress,
+                                              unit = b.unit,
+                                              city = b.city,
+                                              state = b.state,
+                                              zipcode = b.zipcode,
+                                              date_time = datetime.datetime.strftime(c.date_time, "%b-%d-%Y %H:%M"),
+                                              decorationtheme = c.decorationtheme,
+                                              colorscheme = c.colorscheme,
+                                              products = d,
+                                              delivery = c.delivery)
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
   form = ContactForm(request.form)
   if request.method == 'POST':
+    print "helloooooo"
     if form.validate() == False:
+      print form.errors
       flash('All fields are required.')
       return render_template('contact.html', form=form)
     else:
+      print "hihihihihi"
       msg = Message(form.subject.data, sender='contact@example.com', recipients=['mitzisong@gmail.com'])
       msg.body = """
       From: %s <%s>

@@ -3,14 +3,68 @@
 {% block content %}
 <div class="jumbo">
     <div id="formcontainer">
+        <div class="column">
         <h2>Confirmation Page</h2>
-        <h3></h3>
+        <h3><strong>{{ firstname }}</strong>, thank you for choosing Mitzi's Cupcakes!</h3><br>
+        <p><strong>Contact Information</strong></p>
+            Name: {{ firstname }} {{ lastname }}<br>
+            Phone: {{ phonenumber }}<br>
+            Email: {{ email }}
+
+            
+            <div class = "deliveryconfirmationinfo">
+            {% if delivery == "False" %}
+                <p><strong>Delivery Information</strong></p>
+                Alternate Name: {{ altname }}<br>
+                Alternate Phone Number: {{ altphonenumber }}<br>
+                Company Name: {{ companyname }}<br>
+                Address: {{ streetaddress }} {{ unit }}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ city }}, {{ state }} {{ zipcode }}
+            {% endif %}
+            </div>
+        </div>
     </div>
 </div>
+<div class="column right-align">
+    <p><strong>Order Information</strong></p>
+    Date and Time: {{ date_time }}<br>
+    Decoration Theme: {{ decorationtheme }}<br>
+    Color Scheme: {{ colorscheme }}<br><br>
+    {% for cupcake in products %}
+        Flavor: {{ cupcake.product.flavor }}<br>
+        Quantity: {{ cupcake.quantity }}<br>
+        Cost: ${{ cupcake.product.cost }}<br>
+    {% endfor %}
+
+<p><strong>Total Cost</strong></p>
+    {% for cupcake in products %}
+        Cost: ${{ cupcake.product.cost }}<br>
+    {% endfor %}
+</div>
+
 {% endblock %}
 
 {% block script %}
+<script language="javascript" type="text/javascript">
 
+function show_delivery_info() {
+    $("div.deliveryconfirmationinfo").show()
+}
+function hide_delivery_info() {
+    $("div.deliveryconfirmationinfo").hide()
+}
+
+$(document).ready(function (){
+    // If "pickup" is clicked, do this. Else if "delivery" is picked, do that.
+    $('#deliverymethod input').click(function(){
+        if ($('#deliverymethod-0').prop("checked") == true) {
+            hide_delivery_info();
+        } 
+        else {
+            show_delivery_info();
+        }
+    })
+});
 {% endblock %}
 
 

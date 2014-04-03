@@ -8,7 +8,7 @@
         <form action="/order" method="post">
             <div class="column">
                 <p class ="method"><strong>How would you like to get your cupcakes?</strong><br>We deliver between San Francisco and Sunnyvale.</p>
-                <div id="deliveryorpickup">
+                <div class="deliveryorpickup">
                     {{ deliveryrecipientform.deliverymethod }}
                 </div>
 <!--                 <div id="choiceone">
@@ -164,9 +164,10 @@ function hide_delivery_info() {
 }
 
 $(document).ready(function (){
+    $('#deliverymethod-0').prop('checked', true);
     // Add Click Handler for our Pickup/Delivery Radio Buttons
     // $('[name="option"]').click(function() {
-    if ($('#deliveryorpickup').val()=="True") {
+    if ($('#deliverymethod-0').prop("checked") == true) {
         hide_delivery_info();
     }
     // If "pickup" is clicked, do this. Else if "delivery" is picked, do that.
