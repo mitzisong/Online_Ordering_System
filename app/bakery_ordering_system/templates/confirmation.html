@@ -7,32 +7,29 @@
         <h3><strong>{{ firstname }}</strong>, thank you for choosing Mitzi's Cupcakes!</h3><br>
         <div class="column">
         <p><strong>Contact Information</strong></p>
-            Name: {{ firstname }} {{ lastname }}<br>
-            Phone: {{ phonenumber }}<br>
-            Email: {{ email }}
+            <span style="color:#FFFFFF"> Name:</span> {{ firstname }} {{ lastname }}<br>
+            <span style="color:#FFFFFF">Phone:</span> {{ phonenumber }}<br>
+            <span style="color:#FFFFFF">Email:</span> {{ email }}
 
             
             <div class = "deliveryconfirmationinfo">
             {% if delivery == False %}
                 <p><strong>Delivery Information</strong></p>
-                Alternate Name: {{ altname }}<br>
-                Alternate Phone Number: {{ altphonenumber }}<br>
-                Company Name: {{ companyname }}<br>
-                Address: {{ streetaddress }} {{ unit }}<br>
+                <span style="color:#FFFFFF">Alternate Name:</span> {{ altname }}<br>
+                <span style="color:#FFFFFF">Alternate Phone Number:</span> {{ altphonenumber }}<br>
+                <span style="color:#FFFFFF">Company Name:</span> {{ companyname }}<br>
+                <span style="color:#FFFFFF">Address:</span> {{ streetaddress }} {{ unit }}<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ city }}, {{ state }} {{ zipcode }}
-            {% endif %}
-            </div>
-        </div>
-        <div class="column right-align order-information">
+            {% endif %}<br>
             <p><strong>Order Information</strong></p>
-            Date and Time: {{ date_time }}<br>
-            Decoration Theme: {{ decorationtheme }}<br>
-            Color Scheme: {{ colorscheme }}<br><br>
+            <span style="color:#FFFFFF">Date and Time: </span>{{ date_time }}<br>
+            <span style="color:#FFFFFF">Decoration Theme:</span> {{ decorationtheme }}<br>
+            <span style="color:#FFFFFF">Color Scheme:</span> {{ colorscheme }}<br><br>
             {% for cupcake in products %}
-                Flavor: {{ cupcake.product.flavor }}<br>
-                Size: {{ cupcake.product.size }}<br>
-                Dozen: {{ cupcake.quantity }}<br>
-                Cost: ${{ cupcake.product.cost }}<br><br>
+                <span style="color:#FFFFFF">Flavor: </span>{{ cupcake.product.flavor }}<br>
+                <span style="color:#FFFFFF">Size: </span>{{ cupcake.product.size }}<br>
+                <span style="color:#FFFFFF">Dozen:</span> {{ cupcake.quantity }}<br>
+                <span style="color:#FFFFFF">Cost:</span> ${{ cupcake.product.cost }}<br><br>
             {% endfor %}
 
             {% if delivery == False %}
@@ -40,7 +37,11 @@
             {% endif %}
 
             <p><strong>Total Cost</strong></p>
-            ${{ totalcost }}
+            <span style="color:#FFFFFF">$</span>{{ totalcost }}
+            </div>
+        </div>
+        <div class="column right-align order-information">
+        
         </div>
     </div>
 </div>

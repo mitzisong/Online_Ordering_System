@@ -9,14 +9,14 @@
               <div class="column">
                 <h4 class="cupcake_type">Dozen <span>Minis ($27/dozen)</span></h4>
                     {% for product in minis_products %}
-                        <input name="{{product.id}}" type="text"><span class="product" title={{product.description}}>{{product.flavor}}</span><br>
+                        <input name="{{product.id}}" type="text"><span class="product" title="{{product.description}}">{{product.flavor}}</span><br>
                     {% endfor %}
               <div id="total"><strong><br>Total minis: </strong></div>
               </div>
               <div class="column">
                 <h4 class="cupcake_type">Dozen <span>Regulars ($42/dozen)</span></h4>
                     {% for product in reg_products %}
-                        <input name="{{product.id}}" type="text"><span class="product" title={{product.description}}>{{product.flavor}}</span><br>
+                        <input name="{{product.id}}" type="text"><span class="product" title="{{product.description}}">{{product.flavor}}</span><br>
                     {% endfor %}
                 <div id="total"><strong><br>Total regulars: </strong></div><br>
                 <input type="submit" id="submit">
