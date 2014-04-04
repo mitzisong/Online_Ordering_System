@@ -96,9 +96,8 @@ def order():
 
 @app.route('/order2', methods = ['GET', 'POST'])
 def order2():
-  minis = models.session.query(Product).filter_by(size="mini")
-  regulars = models.session.query(Product).filter_by(size="regular")
-
+  minis = models.session.query(Product).filter_by(size="Mini")
+  regulars = models.session.query(Product).filter_by(size="Regular")
 
   if request.method == "POST":
     neworder_id = models.session.query(Order).order_by(Order.id.desc()).first()

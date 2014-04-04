@@ -15,7 +15,8 @@ def load_products(session):
                                      flavor=row[1], 
                                      size=row[2], 
                                      cost=row[3], 
-                                     quantity=row[4])
+                                     quantity=row[4],
+                                     description=row[5])
 
             #add object to a session
             session.add(product)

@@ -5,17 +5,12 @@
 <div class="jumbo">
     <h2>Order Online</h2>
     <div id="formcontainer">
-        <form action="/order" method="post">
+        <form action="/order" method="post" class="informationform">
             <div class="column">
                 <p class ="method"><strong>How would you like to get your cupcakes?</strong><br>We deliver between San Francisco and Sunnyvale.</p>
-                <div class="deliveryorpickup">
+            
                     {{ deliveryrecipientform.deliverymethod }}
-                </div>
-<!--                 <div id="choiceone">
-                    <span class="pickup"><input type="radio" name="deliverymethod" value="True" checked/>Pick-up</span>
-                    <span class="delivery"><input type="radio" name="deliverymethod" value="False" />Delivery ($25)</span>
-                </div>
- -->
+
                 {% for message in form.firstname.errors %}
                 <div class="flash">{{ message }}</div>
                 {% endfor %}
@@ -43,8 +38,7 @@
                  
                 {{ form.email.label }}
                 {{ form.email }}
-
-                {{ form.submit }}
+            
                 
             </div>
             <div class="column right-align">
@@ -53,7 +47,7 @@
                 {{ form.day }} 
                 {{ form.month }}
                 {{ form.year }}
-                </div>
+                </div><br>
                 <p class="time"><strong>What time would you like your cupcakes?</strong><br>
                 {{ form.time }}
                 <p class="deliverytime"><strong>What time would you like your cupcakes by?</strong><br>
@@ -124,6 +118,7 @@
                             </div>
                         </div>
                     </div>
+                    {{ form.submit }}
                 </div>
             </div>
         </form>

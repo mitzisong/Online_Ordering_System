@@ -4,22 +4,22 @@
 <div class="jumbo">
     <div id="formcontainer">
           <h2>Order Online</h2>
-          <h3>All flavors are sold by the half dozen. If you'd like an assortment of flavors, try the <strong>Mitzi's Sampler!</strong><br>The minimum order is one(1) dozen minis or half(1/2) dozen regulars.</h3>
-          <form action="/order2" method="post">
+          <h3>All flavors are sold by the <strong>half dozen</strong>.<br>If you'd like an assortment of flavors, try the <strong>Mitzi's Sampler!</strong><br>The minimum order is <strong>one (1)</strong> dozen minis or <strong>half (1/2)</strong> dozen regulars.</h3>
+          <form action="/order2" method="post" class="flavorform">
               <div class="column">
-                <h4 class="cupcake_type">Dozen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Minis ($27/dozen)</h4>
+                <h4 class="cupcake_type">Dozen <span>Minis ($27/dozen)</span></h4>
                     {% for product in minis_products %}
-                        <input name="{{product.id}}" type="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{product.flavor}}<br>
+                        <input name="{{product.id}}" type="text"><span class="product" title={{product.description}}>{{product.flavor}}</span><br>
                     {% endfor %}
-              <div id="total"><strong>Total minis: </strong></div>
+              <div id="total"><strong><br>Total minis: </strong></div>
               </div>
               <div class="column">
-                <h4 class="cupcake_type">Dozen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Regulars ($42/dozen)</h4>
+                <h4 class="cupcake_type">Dozen <span>Regulars ($42/dozen)</span></h4>
                     {% for product in reg_products %}
-                        <input name="{{product.id}}" type="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{product.flavor}}<br>
+                        <input name="{{product.id}}" type="text"><span class="product" title={{product.description}}>{{product.flavor}}</span><br>
                     {% endfor %}
-                <div id="total"><strong>Total regulars: </strong></div><br>
-                <input type="submit">
+                <div id="total"><strong><br>Total regulars: </strong></div><br>
+                <input type="submit" id="submit">
               </div>
             </form>  
     </div>

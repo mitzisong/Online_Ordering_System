@@ -8,30 +8,82 @@ body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #444;
     background-color: #FFFFFF;
-    background-image:url("static/img/confetti.jpg");
+    background-image:url("../img/stacked.jpg");
+    background-size: 100%;
+    background-attachment: fixed
 }
 
 .container {
     width: 900px;
     margin: 0 auto;
+    /*opacity: 0.9;*/
 }
 
 .content {
-    background-color: #FFCCCC;
+    /*background-color: #FFCCCC;*/
     width: 900px;
     box-sizing: border-box;
     padding: 0 40px;
-    height: 750px;
+    height: 1200px;
 /*  padding: 10px 0 400px 0;*/
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
 }
 
-div.confettipic {
-  text-align: center;
+/*div.grandma {
+  margin-left: 280px;
+  margin-top: 60px;
+  width: 150px;
+  -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+}*/
+
+.piped {
+  border: 1px solid #FFF;
+  margin-top: 20px;
+  margin-left: 70px;
+  -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+
 }
 
+.motto {
+  padding-right: 128px;
+  color: #FFFFFF;
+  font-weight: 100;
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-size: 25px;
+  padding-top: 50px
+}
+
+.motto2 {
+  padding-right: 143px;
+  color: #FFFFFF;
+  font-weight: 100;
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-size: 25px;
+  padding-top: 50px
+}
+
+.motto3 {
+  padding-right: 53px;
+  color: #FFFFFF;
+  font-weight: 100;
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-size: 25px;
+  padding-top: 50px
+}
+
+.coconut {
+  opacity:0.9;
+  filter:alpha(opacity=40);
+  margin-left: 230px;
+  border: 1px solid #FFF;
+  margin-top: 180px;
+  -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+}
 /******************************************************************************
 * Navigation Menu
 */
@@ -54,7 +106,8 @@ div.confettipic {
 }
  
 .menu li a {
-    color: #999;
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    color: #FFFFFF;
     text-decoration: none;
     font-weight: 100;
     letter-spacing: 2px;
@@ -75,8 +128,9 @@ h2 {
 }
 
 h3 {
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
     /*  padding-top: 10;*/
-    font-size: 1.2em;
+    font-size: .9em;
     font-weight: 100;
     text-align: left;
     margin-top: 5px;
@@ -86,7 +140,8 @@ h3 {
 }
 
 p {
-    font-size: 1em;
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-size: .8em;
     /*  float: left;*/
     font-weight: 100;
     color: #990033;
@@ -99,6 +154,12 @@ p.flavors:hover {
   color: #fff;
 }
 
+.gmaphoto2 {
+  border: 1px solid #FFF;
+  margin-top: 5px;
+  -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+}
 /******************************************************************************
 * Forms
 */
@@ -118,7 +179,7 @@ input[type=text] {
     -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
           border-radius: 3px;
-    border: 1px solid #cccccc;
+    border: 1px solid #FFFFFF;
     padding: 5px;
     font-size: 1.1em;
     font-weight: 100;
@@ -132,7 +193,7 @@ form textarea#message {
     -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
           border-radius: 3px;
-    border: 1px solid #cccccc;
+    border: 1px solid #FFFFFF;
     margin-bottom: 10px;
     padding: 5px;
     font-size: 1.1em;
@@ -144,7 +205,7 @@ form input#submit {
     -webkit-border-radius: 3px; 
      -moz-border-radius: 3px;
           border-radius: 3px;
-    border:1px solid #d8d8d8;
+    border:1px solid #FFFFFF;
     padding: 10px; 
     font-weight:bold; 
     text-align: center; 
@@ -161,7 +222,7 @@ form input#submit {
  
 form input#submit:hover{
     cursor: pointer;
-    border:1px solid #c1c1c1; 
+    border:1px solid #FFFFFF; 
     background-color: #dbdbdb;
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dbdbdb), color-stop(100%, #cccccc));
     background-image: -webkit-linear-gradient(top, #dbdbdb, #cccccc);
@@ -177,21 +238,37 @@ form input#submit:hover{
     width: 400px;
 }
 
+input {
+  font-weight: 100;
+}
+
+.gmaphoto {
+  padding-top: 20px;
+  padding-right: 90px
+}
+
+
 /******************************************************************************
 * Orders
 */
 
 /* Signup form */
+.informationform #submit {
+  float: right;
+  margin-top: 40px;
+}
+
 form input#firstname,
 form input#lastname,
 form input#phonenumber,
 form input#email {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
   width: 300px;
   background-color: #fafafa;
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
           border-radius: 3px;
-  border: 1px solid #cccccc;
+  border: 1px solid #FFFFFF;
   padding: 5px;
   font-size: 1.1em;
 }
@@ -226,6 +303,7 @@ div.date {
 }
 div.label
 {
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
     font-weight: 100;
     color: #990033;
 }
@@ -244,14 +322,17 @@ p.recipient
 }
 #recipientdifferent
 {
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
     font-weight: 100;
     color: #990033;
 }
 div.deliveryrecipient
 {
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
     font-size: .8em;
 }
 form label {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
   font-size: .8em;
   display: block;
   /*padding: 2px 0;*/
@@ -264,12 +345,13 @@ div.deliveryaddress
     text-align: 
 }
 .deliveryaddress input {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
   width: 300px;
   background-color: #fafafa;
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
           border-radius: 3px;
-  border: 1px solid #cccccc;
+  border: 1px solid #FFFFFF;
   padding: 2px;
   font-size: 1.1em;
   font-weight: 100;
@@ -278,12 +360,13 @@ div.deliveryaddress
 #unit,
 #state,
 #zipcode {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
   width: 75px;
   background-color: #fafafa;
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
           border-radius: 3px;
-  border: 1px solid #cccccc;
+  border: 1px solid #FFFFFF;
   padding: 2px;
   font-size: 1.1em;
   font-weight: 100;
@@ -300,24 +383,58 @@ div.zipcode {
     display: inline-block;
 }
 
-input#deliverymethod-0 {
-  list-style-type: none;
+#deliverymethod {
+  margin: 34px 0 30px 0;
+  padding: 0;
 }
 
+#deliverymethod li {
+  list-style-type: none;
+  display: inline-block;
+  margin-right: 110px;
+}
+
+#deliverymethod label {
+  display: inline-block;
+}
+
+.intext {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-family: 100;
+}
+
+input#altname {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+}
+
+input#altphonenumber {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+}
 /******************************************************************************
 * Orders2
 */
 
-/*input[type="quantity"] {
-    width: 30px;
+.ui-tooltip {
+  left: 300px !important;
+  width: 300px;
+  height: 200px;
+  -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  background-color: #FFFFFF
+}
+
+input[type="quantity"] {
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    width: 50px;
     background-color: #fafafa;
     -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
           border-radius: 3px;
-    border: 1px solid #cccccc;
+    border: 1px solid #FFFFFF;
     padding: 5px;
     font-size: .9em;
-}*/
+}
 
 h4.cupcaketype {
     font-size: 1em;
@@ -326,6 +443,7 @@ h4.cupcaketype {
 }
 
 div.column {
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
     margin-top: 30px;
     font-size: 1em;
     font-weight: 100;
@@ -333,21 +451,21 @@ div.column {
     height: 5px;
 }
 
-div.column right-align {
-  margin-top: 100px;
+
+.flavorform input[type="text"] {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  width: 40px;
+  margin-right: 80px;
 }
 
-input name=["minis_{{product.id}}"] {
-    width: 30px;
-    background-color: #fafafa;
-    -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-          border-radius: 3px;
-    border: 1px solid #cccccc;
-    padding: 5px;
-    font-size: .9em;
+.cupcake_type span {
+  display: inline-block;
+  margin-left: 64px;
 }
 
+span.product:hover {
+  cursor: pointer;
+  color: #fff;
 
 /******************************************************************************
 * Orders3
@@ -367,3 +485,17 @@ p.flavor:hover {
     cursor: pointer;
     color: #fff;
 }
+
+/******************************************************************************
+* Confirmation
+*/
+
+.order-information {
+  padding-top: 80px;
+}
+
+/******************************************************************************
+* Images
+*/
+
+

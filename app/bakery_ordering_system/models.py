@@ -45,6 +45,7 @@ class Product(Base):
     size = Column(String(50))
     cost = Column(Integer)
     quantity = Column(String(50))
+    description = Column(String(200))
 
 class Order(Base):
     __tablename__ = 'orders'
@@ -55,7 +56,6 @@ class Order(Base):
     delivery = Column(Boolean, default = False)
     decorationtheme = Column(String(100))
     colorscheme = Column(String(100))
-    
     customer = relationship("Customer", backref = backref("orders", order_by=id))
     recipients = relationship("Delivery_Recipient", backref = backref("orders", order_by=id))
 

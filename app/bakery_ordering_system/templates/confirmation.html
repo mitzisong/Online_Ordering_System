@@ -2,10 +2,10 @@
   
 {% block content %}
 <div class="jumbo">
+    <h2>Confirmation Page</h2>
     <div id="formcontainer">
-        <div class="column">
-        <h2>Confirmation Page</h2>
         <h3><strong>{{ firstname }}</strong>, thank you for choosing Mitzi's Cupcakes!</h3><br>
+        <div class="column">
         <p><strong>Contact Information</strong></p>
             Name: {{ firstname }} {{ lastname }}<br>
             Phone: {{ phonenumber }}<br>
@@ -23,25 +23,26 @@
             {% endif %}
             </div>
         </div>
+        <div class="column right-align order-information">
+            <p><strong>Order Information</strong></p>
+            Date and Time: {{ date_time }}<br>
+            Decoration Theme: {{ decorationtheme }}<br>
+            Color Scheme: {{ colorscheme }}<br><br>
+            {% for cupcake in products %}
+                Flavor: {{ cupcake.product.flavor }}<br>
+                Size: {{ cupcake.product.size }}<br>
+                Dozen: {{ cupcake.quantity }}<br>
+                Cost: ${{ cupcake.product.cost }}<br><br>
+            {% endfor %}
+
+            {% if delivery == False %}
+                Delivery: $25
+            {% endif %}
+
+            <p><strong>Total Cost</strong></p>
+            ${{ totalcost }}
+        </div>
     </div>
-</div>
-<div class="column right-align">
-    <p><strong>Order Information</strong></p>
-        Date and Time: {{ date_time }}<br>
-        Decoration Theme: {{ decorationtheme }}<br>
-        Color Scheme: {{ colorscheme }}<br><br>
-        {% for cupcake in products %}
-            Flavor: {{ cupcake.product.flavor }}<br>
-            Dozen: {{ cupcake.quantity }}<br>
-            Cost: ${{ cupcake.product.cost }}<br><br>
-        {% endfor %}
-
-        {% if delivery == False %}
-            Delivery: $25
-        {% endif %}
-
-    <p><strong>Total Cost</strong></p>
-        ${{ totalcost }}
 </div>
 
 

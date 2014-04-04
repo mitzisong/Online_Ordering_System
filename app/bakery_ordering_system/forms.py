@@ -36,7 +36,7 @@ class DeliveryRecipientForm(Form):
     city = TextField("City", [validators.Required("Please enter your city.")])
     state = TextField("State", [validators.Required("Please enter your state.")])
     zipcode = TextField("Zip Code", [validators.Required("Please enter your zip code.")])
-    deliverymethod = RadioField("delivery", choices=[("True", "Pick-Up"), ("False", "Delivery")], coerce=unicode)
+    deliverymethod = RadioField("delivery", choices=[("True", "Pick-Up"), ("False", "Delivery $25")], coerce=unicode)
 
     # def __init__(self, *args, **kwargs):
     #     Form.__init__(self, *args, **kwargs)
