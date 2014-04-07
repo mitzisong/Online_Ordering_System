@@ -82,6 +82,7 @@ def order():
     # print "This is the day", form.day.data
     # print "This is the month", form.month.data
     # print "This is the year", form.year.data
+    newcustomer_id = models.session.query(Customer).order_by(Customer.id.desc()).first()
     date_string = form.month.data + "-" + form.day.data + "-" + form.year.data
     my_date = datetime.datetime.strptime(date_string, "%b-%d-%Y")
     time_string = form.time.data
@@ -90,7 +91,7 @@ def order():
     # print my_date_time
     # print "DELIVERYMETHOD", deliveryrecipientform.deliverymethod.data
     # newuser_id = models.session.query(Customer)
-    neworder = Order(customer_id = newuser_id.id,
+    neworder = Order(customer_id = newcustomer_id.id,
                      recipients_id = deliveryrecipient_id.id,
                      date_time = my_date_time,
                      delivery = deliveryrecipientform.deliverymethod.data)
