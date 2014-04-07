@@ -185,7 +185,42 @@ input[type=text] {
     font-weight: 100;
 }
 
+input[data-stripe="number"] {
+  width: 300px;
+}
 
+input[data-stripe="cvc"] {
+  width: 80px;
+}
+
+input[data-stripe="exp-month"] {
+  width: 80px;
+}
+
+input[data-stripe="exp-year"] {
+  width: 100px;
+}
+
+button {
+    display: block;
+    /*float: right;*/
+    -webkit-border-radius: 3px; 
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+    border:1px solid #FFFFFF;
+    padding: 10px; 
+    font-weight:bold; 
+    text-align: center; 
+    color: #000000; 
+    background-color: #f4f4f4;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f4f4f4), color-stop(100%, #e5e5e5));
+    background-image: -webkit-linear-gradient(top, #f4f4f4, #e5e5e5);
+    background-image: -moz-linear-gradient(top, #f4f4f4, #e5e5e5);
+    background-image: -ms-linear-gradient(top, #f4f4f4, #e5e5e5);
+    background-image: -o-linear-gradient(top, #f4f4f4, #e5e5e5);
+    background-image: linear-gradient(top, #f4f4f4, #e5e5e5);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f4f4f4, endColorstr=#e5e5e5);
+    /*margin-top: 70px;*/
+}
 form textarea#message {
     width: 400px;
     height: 100px;
@@ -415,13 +450,20 @@ input#altphonenumber {
 */
 
 .ui-tooltip {
-  left: 300px !important;
+  opacity: 0.9;
+  filter: alpha(opacity=40);
+  position: of;
   width: 300px;
-  height: 200px;
+  height: 80px;
   -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
-  background-color: #FFFFFF
+      border-radius: 3px;
+  border: 1px solid #FFFFFF;
+  font-family: cursive;
+  background-color: #FFCCCC;
+  color: #990033;
+  font-size: .9em;
+  text-align: left;
 }
 
 input[type="quantity"] {
@@ -492,6 +534,17 @@ p.flavor:hover {
 
 .order-information {
   padding-top: 80px;
+}
+ 
+  cursor: pointer;
+  border:1px solid #FFFFFF; 
+  background-color: #dbdbdb;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dbdbdb), color-stop(100%, #cccccc));
+  background-image: -webkit-linear-gradient(top, #dbdbdb, #cccccc);
+  background-image: -moz-linear-gradient(top, #dbdbdb, #cccccc);
+  background-image: -ms-linear-gradient(top, #dbdbdb, #cccccc);
+  background-image: -o-linear-gradient(top, #dbdbdb, #cccccc);
+  background-image: linear-gradient(top, #dbdbdb, #cccccc);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#dbdbdb, endColorstr=#cccccc);
 }
 
 /******************************************************************************

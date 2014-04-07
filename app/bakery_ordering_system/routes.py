@@ -4,8 +4,19 @@ from forms import ContactForm, SignupForm, DeliveryRecipientForm, ChooseDecorati
 from flask.ext.mail import Message, Mail
 from models import Customer, Delivery_Recipient, Order_Product, Product, Order, session as dbsession
 import datetime
+import os
+import stripe
 
 mail = Mail()
+
+# stripe_keys = {
+#     'secret_key': os.environ['SECRET_KEY'],
+#     'publishable_key': os.environ['PUBLISHABLE_KEY']
+# }
+
+# stripe.api_key = stripe_keys['secret_key']
+
+# app = Flask(__name__)
 
 @app.route('/')
 def home():
@@ -103,12 +114,13 @@ def order2():
     neworder_id = models.session.query(Order).order_by(Order.id.desc()).first()
     whole_form = request.form
     for product_id in whole_form.iterkeys():
+      #if there is an input
       if whole_form[product_id] != "":
         print "These cupcakes:", product_id, whole_form[product_id]
   
         new_order_product = Order_Product(order_id = neworder_id.id,
                                           product_id = int(product_id),
-                                          quantity = int(whole_form[product_id]))
+                                          quantity = float(whole_form[product_id]))
         dbsession.add(new_order_product)
         dbsession.commit()
 
@@ -136,8 +148,10 @@ def order3():
 
   return render_template('order3.html', choosedecorationsform=choosedecorationsform)
 
-@app.route('/confirmation')
+@app.route('/confirmation', methods = ['GET', 'POST'])
 def confirmation():
+  form = SignupForm(csrf_enabled=False)
+
   a = models.session.query(Customer).order_by(Customer.id.desc()).first()
   firstname = a.firstname
   lastname = a.lastname
@@ -160,8 +174,6 @@ def confirmation():
   colorscheme = c.colorscheme
   delivery = c.delivery
 
-
-
   d = models.session.query(Order_Product).filter_by(order_id=c.id).all()
 
   totalcost = 0;
@@ -170,7 +182,11 @@ def confirmation():
   e = []
   for product in d:
     e.append(product)
-    totalcost += product.product.cost
+    print "THIS IS THE PRODUCT QUANTITY", product.quantity
+    totalcost += product.product.cost * product.quantity
+
+  if request.method == "POST":
+    return redirect(url_for('payment'))
 
 
   # e = models.session.query(Product).order_by(Product.id.desc()).first()
@@ -193,8 +209,14 @@ def confirmation():
                                               decorationtheme = c.decorationtheme,
                                               colorscheme = c.colorscheme,
                                               products = e,
-                                              totalcost=totalcost,
-                                              delivery = c.delivery)
+                                              totalcost = totalcost,
+                                              delivery = c.delivery,
+                                              form = form)
+
+@app.route('/payment', methods = ['GET', 'POST'])
+def payment():
+  
+  return render_template('payment.html')
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
