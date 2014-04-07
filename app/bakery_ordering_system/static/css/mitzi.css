@@ -190,15 +190,15 @@ input[data-stripe="number"] {
 }
 
 input[data-stripe="cvc"] {
-  width: 80px;
+  width: 50px;
 }
 
 input[data-stripe="exp-month"] {
-  width: 80px;
+  width: 50px;
 }
 
 input[data-stripe="exp-year"] {
-  width: 100px;
+  width: 80px;
 }
 
 button {
