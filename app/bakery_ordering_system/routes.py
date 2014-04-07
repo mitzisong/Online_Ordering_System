@@ -144,12 +144,12 @@ def order3():
 
     dbsession.commit()
 
-    return redirect(url_for('confirmation'))
+    return redirect(url_for('orderreview'))
 
   return render_template('order3.html', choosedecorationsform=choosedecorationsform)
 
-@app.route('/confirmation', methods = ['GET', 'POST'])
-def confirmation():
+@app.route('/orderreview', methods = ['GET', 'POST'])
+def orderreview():
   form = SignupForm(csrf_enabled=False)
 
   a = models.session.query(Customer).order_by(Customer.id.desc()).first()
@@ -215,8 +215,61 @@ def confirmation():
 
 @app.route('/payment', methods = ['GET', 'POST'])
 def payment():
+  if request.method == "POST":
+    return redirect(url_for('confirmation'))
   
   return render_template('payment.html')
+
+@app.route('/confirmation')
+def confirmation():
+  a = models.session.query(Customer).order_by(Customer.id.desc()).first()
+  firstname = a.firstname
+
+  b = models.session.query(Delivery_Recipient).order_by(Delivery_Recipient.id.desc()).first()
+  altname = b.altname
+  altphonenumber = b.altphonenumber
+  companyname = b.companyname
+  streetaddress = b.streetaddress
+  unit = b.unit
+  city = b.city
+  state = b.state
+  zipcode = b.zipcode
+
+  c = models.session.query(Order).order_by(Order.id.desc()).first()
+  date_time = c.date_time
+  decorationtheme = c.decorationtheme
+  colorscheme = c.colorscheme
+  delivery = c.delivery
+
+  d = models.session.query(Order_Product).filter_by(order_id=c.id).all()
+
+  totalcost = 0;
+  if delivery == False:
+    totalcost = 25
+  e = []
+  for product in d:
+    e.append(product)
+    print "THIS IS THE PRODUCT QUANTITY", product.quantity
+    totalcost += product.product.cost * product.quantity
+
+  return render_template('orderreview.html', firstname = a.firstname,
+                                            lastname = a.lastname,
+                                            phonenumber = a.phonenumber,
+                                            email = a.email,
+                                            altname = b.altname,
+                                            altphonenumber = b.altphonenumber,
+                                            companyname = b.companyname,
+                                            streetaddress = b.streetaddress,
+                                            unit = b.unit,
+                                            city = b.city,
+                                            state = b.state,
+                                            zipcode = b.zipcode,
+                                            date_time = datetime.datetime.strftime(c.date_time, "%b-%d-%Y %H:%M"),
+                                            decorationtheme = c.decorationtheme,
+                                            colorscheme = c.colorscheme,
+                                            products = e,
+                                            totalcost = totalcost,
+                                            delivery = c.delivery)
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
