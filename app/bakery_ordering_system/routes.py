@@ -132,7 +132,7 @@ def order2():
 @app.route('/order3', methods = ['GET', 'POST'])
 def order3():
   choosedecorationsform = ChooseDecorationsForm(csrf_enabled=False)
-  colors = choosedecorationsform.color1.data+"-"+choosedecorationsform.color2.data+"-"+choosedecorationsform.color3.data
+  colors = choosedecorationsform.color1.data+"/"+choosedecorationsform.color2.data+"/"+choosedecorationsform.color3.data
 
   if request.method=="POST":
     print choosedecorationsform.color1.data
