@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+  
+{% block content %}
+<div class="jumbo">
+    <div id="formcontainer">
+        <h2>Order Online</h2>
+        <h3>Choose your decorations:</h3>
+        <p>If you would like a custom decoration that is not listed, please contact us at 408.314.2615</p><br>
+        <form action="/order3" method="post">
+          <div class="dropdown">
+            {{ choosedecorationsform.decoration }} 
+          </div><br><br><br>
+          <h3>Choose your color scheme:</h3>
+          <p>Please choose a maximum of 3 colors</p><br>
+            {{ choosedecorationsform.color1}}
+            {{ choosedecorationsform.color2}}
+            {{ choosedecorationsform.color3}}<br><br>
+            {{ choosedecorationsform.submit }}
+            </div>
+        </form>  
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

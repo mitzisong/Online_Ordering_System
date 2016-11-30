@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+  
+{% block content %}
+<div class="jumbo">
+    <div id="formcontainer">
+          <h2>Order Online</h2>
+          <h3>All flavors are sold by the <strong>dozen</strong>.<br>If you'd like an assortment of flavors, try the <strong>Mitzi's Sampler!</strong><br></h3>
+          <form action="/order2" method="post" class="flavorform">
+              <div class="column">
+                <h4 class="cupcake_type">Dozen <span>Minis ($27/dozen)</span></h4>
+                    {% for product in minis_products %}
+                        <input name="{{product.id}}" type="text"><span class="product" title="{{product.description}}">{{product.flavor}}</span><br>
+                    {% endfor %}
+              <!-- <div id="total"><strong><br>Dozen Minis </strong></div> -->
+              </div>
+              <div class="column">
+                <h4 class="cupcake_type">Dozen <span>Regulars ($42/dozen)</span></h4>
+                    {% for product in reg_products %}
+                        <input name="{{product.id}}" type="text"><span class="product" title="{{product.description}}">{{product.flavor}}</span><br>
+                    {% endfor %}<br>
+               <!--  <div id="total"><strong><br>Dozen Regulars </strong></div><br> -->
+                <input type="submit" id="submit">
+              </div>
+            </form>  
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script language="javascript" type="text/javascript">
+
+
+{% endblock %}

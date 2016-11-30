@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mitzi's Cupcakes</title>    
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/mitzi.css') }}"> 
+
+  </head>
+  <body>
+    <div class="container">
+      <ul class="menu">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('menu') }}">Menu</a></li>
+        <li><a href="{{ url_for('order') }}">Order Online</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        <li><a href="javascript:void(0);" onclick=myHandler() id="intercom">Support</a></li>
+      </ul>
+
+      <div class="content">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js">
+    </script>
+    <script src="{{ url_for('static', filename='js/jquery-ui-1.10.4.custom.min.js')}}">
+    </script>
+    <script>
+      $(".product").tooltip();
+    </script>
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript">
+    // This identifies your website in the createToken call below
+    Stripe.setPublishableKey('pk_test_uYCAWanLRXTbGRQ8lpV3lf6C');
+    // ...
+    </script>
+<script>
+/* Replace 'APP_ID' with your app ID */
+window.intercomSettings = {
+    app_id: 'u3oa0lqx',
+    hide_default_launcher: false,
+    custom_launcher_selector: '#intercom'
+};
+/* Replace 'APP_ID' with your app ID */
+(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/u3oa0lqx';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()
+</script>
+
+    {% block script %}
+    <script language="javascript" type="text/javascript">
+
+
+
+    {% endblock %}
+  </body>
+</html>

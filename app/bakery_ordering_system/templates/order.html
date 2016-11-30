@@ -1,0 +1,206 @@
+{% extends "layout.html" %}
+ 
+{% block content %}
+
+<div class="jumbo">
+    <h2>Order Online</h2>
+    <div id="formcontainer">
+        <form action="/order" method="post" class="informationform">
+            <div class="column">
+                <p class ="method"><strong>How would you like to get your cupcakes?</strong><br></p>
+            
+                    {{ deliveryrecipientform.deliverymethod }}
+
+                {% for message in form.firstname.errors %}
+                <div class="flash">{{ message }}</div>
+                {% endfor %}
+               
+                {% for message in form.lastname.errors %}
+                <div class="flash">{{ message }}</div>
+                {% endfor %}
+               
+                {% for message in form.phonenumber.errors %}
+                <div class="flash">{{ message }}</div>
+                {% endfor %}
+               
+                {% for message in form.email.errors %}
+                <div class="flash">{{ message }}</div>
+                {% endfor %}
+
+                {{ form.firstname.label }}
+                {{ form.firstname }}
+                 
+                {{ form.lastname.label }}
+                {{ form.lastname }}
+                 
+                {{ form.phonenumber.label }}
+                {{ form.phonenumber }}
+                 
+                {{ form.email.label }}
+                {{ form.email }}
+            
+            <p>*Fields are required</p>
+                
+            </div>
+            <div class="column right-align">
+                <p class="date"><strong>What day would you like your cupcakes?</strong></p>
+                <div class="dropdown">
+                {{ form.day }} 
+                {{ form.month }}
+                {{ form.year }}
+                </div><br>
+                <p class="time"><strong>What time would you like your cupcakes?</strong><br>
+                {{ form.time }}
+                <p class="deliverytime"><strong>What time would you like your cupcakes by?</strong><br>
+                {{ form.time }}
+                    <p class="recipient"><strong>Is recipient's name & phone different?</strong></p>
+                    <div id="recipientdifferent">
+                        <span class="yes"><input type="radio" name="recipientdiff" value="yes" checked/>Yes</span>
+                        <span class="no"><input type="radio" name="recipientdiff" value="no" />No</span>
+                    </div>
+                    {% for message in deliveryrecipientform.altname.errors %}
+                    <div class="flash">{{ message }}</div>
+                    {% endfor %}
+                   
+                    {% for message in deliveryrecipientform.altphonenumber.errors %}
+                    <div class="flash">{{ message }}</div>
+                    {% endfor %}
+                    <div class="deliveryrecipient">
+                        {{ deliveryrecipientform.altname.label }}
+                        {{ deliveryrecipientform.altname }}
+                         
+                        {{ deliveryrecipientform.altphonenumber.label }}
+                        {{ deliveryrecipientform.altphonenumber }}
+                    </div>
+                <p class="deliveryaddress"><strong>Where should we deliver your cupcakes?<strong></p>
+
+                {% for message in deliveryrecipientform.companyname.errors %}
+                <div class="flash">{{ message }}</div>
+                {% endfor %}
+               
+                {% for message in deliveryrecipientform.streetaddress.errors %}
+                <div class="flash">{{ message }}</div>
+                {% endfor %}
+               
+                {% for message in deliveryrecipientform.unit.errors %}
+                <div class="flash">{{ message }}</div>
+                {% endfor %}
+
+                {% for message in deliveryrecipientform.city.errors %}
+                <div class="flash">{{ message }}</div>
+                {% endfor %}
+               
+                {% for message in deliveryrecipientform.state.errors %}
+                <div class="flash">{{ message }}</div>
+                {% endfor %}
+                {% for message in deliveryrecipientform.zipcode.errors %}
+                <div class="flash">{{ message }}</div>
+                {% endfor %}
+                    <div class = "deliveryaddress">
+                        {{ deliveryrecipientform.companyname.label }}
+                        {{ deliveryrecipientform.companyname }}
+
+                        {{ deliveryrecipientform.streetaddress.label }}
+                        {{ deliveryrecipientform.streetaddress }}
+
+                        {{ deliveryrecipientform.unit.label }}
+                        {{ deliveryrecipientform.unit }}
+
+                        {{ deliveryrecipientform.city.label }}
+                        {{ deliveryrecipientform.city }}
+                        <div class="formrow">
+                            <div class="state">
+                                {{ deliveryrecipientform.state.label }}
+                                {{ deliveryrecipientform.state }}
+                            </div>
+                            <div class="zipcode">
+                                {{ deliveryrecipientform.zipcode.label }}
+                                {{ deliveryrecipientform.zipcode }}
+                            </div>
+                        </div>
+                    </div>
+                    {{ form.submit }}
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+
+<script language="javascript" type="text/javascript">
+
+        
+// function handleRadioButtonClick() {
+//     console.log('handling the radio button');
+// }
+
+function show_delivery_info() {
+            $("p.deliveryaddress").show()
+            $("p.deliverytime").show()
+            $("div.deliveryrecipient").show()
+            $("div.deliveryaddress").show()
+            $("p.recipient").show()
+            $("#recipientdifferent").show()
+            $("p.time").hide()
+
+}
+
+function hide_delivery_info() {
+        $("p.deliveryaddress").hide()
+        $("p.deliverytime").hide();
+        $("div.deliveryrecipient").hide()
+        $("div.deliveryaddress").hide()
+        $("p.recipient").hide()
+        $("#recipientdifferent").hide()
+        $("p.time").show()
+
+}
+
+$(document).ready(function (){
+    $('#deliverymethod-0').prop('checked', true);
+    // Add Click Handler for our Pickup/Delivery Radio Buttons
+    // $('[name="option"]').click(function() {
+    if ($('#deliverymethod-0').prop("checked") == true) {
+        hide_delivery_info();
+    }
+    // If "pickup" is clicked, do this. Else if "delivery" is picked, do that.
+    $('#deliverymethod input').click(function(){
+        if ($('#deliverymethod-0').prop("checked") == true) {
+            hide_delivery_info();
+        } 
+        else {
+            show_delivery_info();
+        }
+    })
+});
+
+$(document).ready(function (){
+    // Add Click Handler for our Pickup/Delivery Radio Buttons
+    // $('[name="option"]').click(function() {
+    if ($('#recipientdifferent :checked').val()=="yes" && $('#choiceone :checked').val()=="delivery") {
+        $("div.deliveryrecipient").show()
+        console.log('here');
+    }
+    // If "pickup" is clicked, do this. Else if "delivery" is picked, do that.
+    $('#recipientdifferent input').click(function(){
+        if ($('#recipientdifferent :checked').val()=="yes") {
+            $("div.deliveryrecipient").show()
+        } 
+        else {
+            $("div.deliveryrecipient").hide()
+        }
+    })
+});
+
+</script>
+
+{% endblock %}
+
+
+
+
+
+

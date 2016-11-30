@@ -1,0 +1,554 @@
+/******************************************************************************
+* Layout
+*/
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #444;
+    background-color: #FFFFFF;
+    background-image:url("../img/stacked.jpg");
+    background-size: 100%;
+    background-attachment: fixed
+}
+
+.container {
+    width: 900px;
+    margin: 0 auto;
+    /*opacity: 0.9;*/
+}
+
+.content {
+    /*background-color: #FFCCCC;*/
+    width: 900px;
+    box-sizing: border-box;
+    padding: 0 40px;
+    height: 1200px;
+/*  padding: 10px 0 400px 0;*/
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+
+/*div.grandma {
+  margin-left: 280px;
+  margin-top: 60px;
+  width: 150px;
+  -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+}*/
+
+.piped {
+  border: 1px solid #FFF;
+  margin-top: 20px;
+  margin-left: 70px;
+  -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+
+}
+
+.motto {
+  padding-right: 128px;
+  color: #FFFFFF;
+  font-weight: 100;
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-size: 25px;
+  padding-top: 50px
+}
+
+.motto2 {
+  padding-right: 143px;
+  color: #FFFFFF;
+  font-weight: 100;
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-size: 25px;
+  padding-top: 50px
+}
+
+.motto3 {
+  padding-right: 53px;
+  color: #FFFFFF;
+  font-weight: 100;
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-size: 25px;
+  padding-top: 50px
+}
+
+.coconut {
+  opacity:0.9;
+  filter:alpha(opacity=40);
+  margin-left: 230px;
+  border: 1px solid #FFF;
+  margin-top: 180px;
+  -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+}
+/******************************************************************************
+* Navigation Menu
+*/
+
+.menu {
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+    height: 5px;
+    width: 100%;
+    text-align: right;
+}
+
+.menu li {
+    display: inline;
+}
+ 
+.menu li + li {
+    margin-left: 35px;
+}
+ 
+.menu li a {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 100;
+    letter-spacing: 2px;
+}
+
+/******************************************************************************
+* Headers/Typography
+*/
+
+h2 {
+    font-size: 3em;
+    text-align: center;
+    letter-spacing: -2px;
+    color: #990033;
+    font-weight: 100;
+    width: 900px;
+    height: 30px;
+}
+
+h3 {
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    /*  padding-top: 10;*/
+    font-size: .9em;
+    font-weight: 100;
+    text-align: left;
+    margin-top: 5px;
+    letter-spacing: -1px;
+    color: #FFFFFF;
+    height: 10px;
+}
+
+p {
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-size: .9em;
+    /*  float: left;*/
+    font-weight: 100;
+    color: #990033;
+    height: 5px;
+    /*margin-top: 10px*/
+}
+
+p.flavors:hover {
+  cursor: pointer;
+  color: #fff;
+}
+
+.gmaphoto2 {
+  border: 1px solid #FFF;
+  margin-top: 5px;
+  -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+}
+/******************************************************************************
+* Forms
+*/
+
+form label {
+    font-size: .9em;
+    display: block;
+    padding: 2px 0;
+    font-weight: 100;
+    color: #990033;
+    margin-bottom: -1px;
+}
+
+input[type=text] {
+    width: 300px;
+    background-color: #fafafa;
+    -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+    border: 1px solid #FFFFFF;
+    padding: 5px;
+    font-size: 1.1em;
+    font-weight: 100;
+}
+
+input[data-stripe="number"] {
+  width: 300px;
+}
+
+input[data-stripe="cvc"] {
+  width: 50px;
+}
+
+input[data-stripe="exp-month"] {
+  width: 50px;
+}
+
+input[data-stripe="exp-year"] {
+  width: 80px;
+}
+
+button {
+    display: block;
+    /*float: right;*/
+    -webkit-border-radius: 3px; 
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+    border: 1px solid #FFFFFF;
+    padding: 10px; 
+    font-weight: bold; 
+    text-align: center; 
+    color: #000000; 
+    background-color: #f4f4f4;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f4f4f4), color-stop(100%, #e5e5e5));
+    background-image: -webkit-linear-gradient(top, #f4f4f4, #e5e5e5);
+    background-image: -moz-linear-gradient(top, #f4f4f4, #e5e5e5);
+    background-image: -ms-linear-gradient(top, #f4f4f4, #e5e5e5);
+    background-image: -o-linear-gradient(top, #f4f4f4, #e5e5e5);
+    background-image: linear-gradient(top, #f4f4f4, #e5e5e5);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f4f4f4, endColorstr=#e5e5e5);
+    /*margin-top: 70px;*/
+}
+form textarea#message {
+    width: 400px;
+    height: 100px;
+    background-color: #fafafa;
+    -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+    border: 1px solid #FFFFFF;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-size: 1.1em;
+}
+
+form input#submit {
+    display: block;
+    /*float: right;*/
+    -webkit-border-radius: 3px; 
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+    border:1px solid #FFFFFF;
+    padding: 10px; 
+    font-weight:bold; 
+    text-align: center; 
+    color: #000000; 
+    background-color: #f4f4f4;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f4f4f4), color-stop(100%, #e5e5e5));
+    background-image: -webkit-linear-gradient(top, #f4f4f4, #e5e5e5);
+    background-image: -moz-linear-gradient(top, #f4f4f4, #e5e5e5);
+    background-image: -ms-linear-gradient(top, #f4f4f4, #e5e5e5);
+    background-image: -o-linear-gradient(top, #f4f4f4, #e5e5e5);
+    background-image: linear-gradient(top, #f4f4f4, #e5e5e5);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f4f4f4, endColorstr=#e5e5e5);
+    /*margin-top: 70px;*/
+}
+ 
+form input#submit:hover{
+    cursor: pointer;
+    border:1px solid #FFFFFF; 
+    background-color: #dbdbdb;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dbdbdb), color-stop(100%, #cccccc));
+    background-image: -webkit-linear-gradient(top, #dbdbdb, #cccccc);
+    background-image: -moz-linear-gradient(top, #dbdbdb, #cccccc);
+    background-image: -ms-linear-gradient(top, #dbdbdb, #cccccc);
+    background-image: -o-linear-gradient(top, #dbdbdb, #cccccc);
+    background-image: linear-gradient(top, #dbdbdb, #cccccc);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#dbdbdb, endColorstr=#cccccc);
+}
+
+.flash {
+    background-color: #FBB0B0;
+    padding: 10px;
+    width: 400px;
+}
+
+input {
+  font-weight: 100;
+}
+
+.gmaphoto {
+  padding-top: 20px;
+  padding-right: 90px
+}
+
+
+/******************************************************************************
+* Orders
+*/
+
+/* Signup form */
+.informationform #submit {
+  float: right;
+  margin-top: 40px;
+}
+
+form input#firstname,
+form input#lastname,
+form input#phonenumber,
+form input#email {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  width: 300px;
+  background-color: #fafafa;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  border: 1px solid #FFFFFF;
+  padding: 5px;
+  font-size: 1.1em;
+}
+
+form.radio {
+  font-weight: 100;
+  height: 60px;
+}
+
+/* Order Form */
+div.date {
+  float: right;
+}
+
+#formcontainer .column
+{
+    width: 50%;
+    float: left;
+}
+#choiceone
+{
+    font-weight: 100;
+    height: 60px;
+}
+#choiceone .delivery
+{
+    margin-left: 110px;
+}
+.right-align
+{
+    text-align: right;
+}
+div.label
+{
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-weight: 100;
+    color: #990033;
+}
+select.hours
+{
+    float: right;
+}
+p.deliveryaddress
+{
+    margin-top: 35px;
+    margin-bottom: 40px;
+}
+p.recipient
+{
+    margin-top: 60px;
+}
+#recipientdifferent
+{
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-weight: 100;
+    color: #990033;
+}
+div.deliveryrecipient
+{
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-size: .9em;
+}
+form label {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-size: .9em;
+  display: block;
+  /*padding: 2px 0;*/
+  font-weight: 100;
+  color: #990033;
+  /*margin-bottom: 5px;*/
+}
+div.deliveryaddress
+{
+    text-align: 
+}
+.deliveryaddress input {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  width: 300px;
+  background-color: #fafafa;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  border: 1px solid #FFFFFF;
+  padding: 2px;
+  font-size: 1.1em;
+  font-weight: 100;
+  /*text-align: left*/
+}
+#unit,
+#state,
+#zipcode {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  width: 75px;
+  background-color: #fafafa;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  border: 1px solid #FFFFFF;
+  padding: 2px;
+  font-size: 1.1em;
+  font-weight: 100;
+}
+div.formrow {
+    width: 100%;
+}
+div.state {
+    width: 50%;
+    display: inline-block;
+}
+div.zipcode {
+    width: 30%;
+    display: inline-block;
+}
+
+#deliverymethod {
+  margin: 34px 0 30px 0;
+  padding: 0;
+}
+
+#deliverymethod li {
+  list-style-type: none;
+  display: inline-block;
+  margin-right: 110px;
+}
+
+#deliverymethod label {
+  display: inline-block;
+}
+
+.intext {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-family: 100;
+}
+
+input#altname {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+}
+
+input#altphonenumber {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+}
+/******************************************************************************
+* Orders2
+*/
+
+.ui-tooltip {
+  opacity: 0.9;
+  filter: alpha(opacity=40);
+  position: right;
+  width: 300px;
+  height: 80px;
+  -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+      border-radius: 3px;
+  border: 1px solid #FFFFFF;
+  font-family: cursive;
+  background-color: #FFCCCC;
+  color: #990033;
+  font-size: .9em;
+  text-align: left;
+}
+
+input[type="quantity"] {
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    width: 50px;
+    background-color: #fafafa;
+    -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+          border-radius: 3px;
+    border: 1px solid #FFFFFF;
+    padding: 5px;
+    font-size: .8em;
+}
+
+h4.cupcaketype {
+    font-size: 1em;
+    /*  float: left;*/
+    font-weight: 100;
+}
+
+div.column {
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    margin-top: 30px;
+    font-size: .9em;
+    font-weight: 100;
+    color: #990033;
+    height: 5px;
+}
+
+
+.flavorform input[type="text"] {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  width: 40px;
+  margin-right: 80px;
+}
+
+.cupcake_type span {
+  display: inline-block;
+  margin-left: 64px;
+}
+
+span.product:hover {
+  cursor: pointer;
+  color: #fff;
+
+/******************************************************************************
+* Orders3
+*/
+
+span.color {
+    font-weight: 100;
+    color: #990033;
+}
+
+div.choosedecorationsubmit {
+    margin-top: 100px;
+    float: right;
+}
+
+p.flavor:hover {
+    cursor: pointer;
+    color: #fff;
+}
+
+/******************************************************************************
+* Confirmation
+*/
+
+.order-information {
+  padding-top: 80px;
+}
+ 
+  cursor: pointer;
+  border:1px solid #FFFFFF; 
+  background-color: #dbdbdb;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dbdbdb), color-stop(100%, #cccccc));
+  background-image: -webkit-linear-gradient(top, #dbdbdb, #cccccc);
+  background-image: -moz-linear-gradient(top, #dbdbdb, #cccccc);
+  background-image: -ms-linear-gradient(top, #dbdbdb, #cccccc);
+  background-image: -o-linear-gradient(top, #dbdbdb, #cccccc);
+  background-image: linear-gradient(top, #dbdbdb, #cccccc);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#dbdbdb, endColorstr=#cccccc);
+}
+
+/******************************************************************************
+* Images
+*/
+
+
