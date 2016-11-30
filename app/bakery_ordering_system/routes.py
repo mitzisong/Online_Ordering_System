@@ -6,7 +6,7 @@ from models import Customer, Delivery_Recipient, Order_Product, Product, Order, 
 import datetime
 import os
 import stripe
-<<<<<<< HEAD
+# <<<<<<< HEAD
 import sys
 print sys.path
 from intercom import Intercom
@@ -22,8 +22,8 @@ import random
 
 Intercom.app_id = "u3oa0lqx"
 Intercom.app_api_key = "147bef29f725f9fcc96dfe19443c108dacb0883a"
-=======
->>>>>>> 2961bf400535b735ad183cc7c54e3240df727fbc
+# =======
+# >>>>>>> 2961bf400535b735ad183cc7c54e3240df727fbc
 
 mail = Mail()
 

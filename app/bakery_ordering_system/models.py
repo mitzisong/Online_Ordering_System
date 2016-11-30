@@ -23,7 +23,7 @@ class Customer(Base):
     lastname = Column(String(100))
     phonenumber = Column(String(20))
     email = Column(String(120))
-2
+
 class Delivery_Recipient(Base):
     __tablename__ = 'recipients'
     id = Column(Integer, primary_key = True)
