@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 from flask_wtf import Form
+=======
+from flask.ext.wtf import Form
+>>>>>>> 2961bf400535b735ad183cc7c54e3240df727fbc
 from wtforms import TextField, SelectField, RadioField, SubmitField, validators, TextAreaField, ValidationError
 
  

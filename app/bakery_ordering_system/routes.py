@@ -6,6 +6,7 @@ from models import Customer, Delivery_Recipient, Order_Product, Product, Order, 
 import datetime
 import os
 import stripe
+<<<<<<< HEAD
 import sys
 print sys.path
 from intercom import Intercom
@@ -21,6 +22,8 @@ import random
 
 Intercom.app_id = "u3oa0lqx"
 Intercom.app_api_key = "147bef29f725f9fcc96dfe19443c108dacb0883a"
+=======
+>>>>>>> 2961bf400535b735ad183cc7c54e3240df727fbc
 
 mail = Mail()
 
@@ -298,6 +301,7 @@ def contact():
       return render_template('contact.html', form=form)
     else:
       print "hihihihihi"
+<<<<<<< HEAD
       # msg = Message(form.subject.data, sender='contact@example.com', recipients=['mitzisong@gmail.com'])
       # msg.body = """
       # From: %s <%s>
@@ -327,6 +331,15 @@ def contact():
 })    
       # mail.send(msg)
     return render_template('contact.html', success=True)
+=======
+      msg = Message(form.subject.data, sender='contact@example.com', recipients=['mitzisong@gmail.com'])
+      msg.body = """
+      From: %s <%s>
+      %s
+      """ % (form.name.data, form.email.data, form.message.data)
+      mail.send(msg)
+      return render_template('contact.html', success=True)
+>>>>>>> 2961bf400535b735ad183cc7c54e3240df727fbc
  
   elif request.method == 'GET':
     return render_template('contact.html', form=form)
