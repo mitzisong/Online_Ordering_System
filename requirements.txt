@@ -11,6 +11,6 @@ blinker==1.3
 itsdangerous==0.23
 wsgiref==0.1.2
 Intercom==2.1.1
-Intercom.app_id = "u3oa0lqx"
-Intercom.app_api_key = "f49e0a29f03ced7104b2e1ca6dae869facac8321"
+Intercom.app_id=="u3oa0lqx"
+Intercom.app_api_key=="f49e0a29f03ced7104b2e1ca6dae869facac8321"
 
