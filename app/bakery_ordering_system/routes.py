@@ -332,13 +332,13 @@ def contact():
       # mail.send(msg)
     return render_template('contact.html', success=True)
 # =======
-      msg = Message(form.subject.data, sender='contact@example.com', recipients=['mitzisong@gmail.com'])
-      msg.body = """
-      From: %s <%s>
-      %s
-      """ % (form.name.data, form.email.data, form.message.data)
-      mail.send(msg)
-      return render_template('contact.html', success=True)
+      # msg = Message(form.subject.data, sender='contact@example.com', recipients=['mitzisong@gmail.com'])
+      # msg.body = """
+      # From: %s <%s>
+      # %s
+      # """ % (form.name.data, form.email.data, form.message.data)
+      # mail.send(msg)
+      # return render_template('contact.html', success=True)
 # >>>>>>> 2961bf400535b735ad183cc7c54e3240df727fbc
  
   elif request.method == 'GET':
