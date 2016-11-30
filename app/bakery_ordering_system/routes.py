@@ -5,7 +5,7 @@ from flask.ext.mail import Message, Mail
 from models import Customer, Delivery_Recipient, Order_Product, Product, Order, session as dbsession
 import datetime
 import os
-import stripe
+# import stripe
 # <<<<<<< HEAD
 import sys
 print sys.path
