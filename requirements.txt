@@ -11,4 +11,5 @@ blinker==1.3
 itsdangerous==0.23
 wsgiref==0.1.2
 psycopg2==2.6.1
+Intercom==2.1.1
 
